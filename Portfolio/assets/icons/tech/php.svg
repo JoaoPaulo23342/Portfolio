@@ -1,0 +1,10 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fundo do elefante (azul escuro) -->
+  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#6181B6"/>
+  
+  <!-- Corpo do elefante (azul claro) -->
+  <path d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8zm3.5 9.5h-7v-3h7v3z" fill="#8892BF"/>
+  
+  <!-- Texto PHP (branco) -->
+  <path d="M10.5 11h3v1.5h-3V11zm-3 0h1.5v1.5H7.5V11zm6 0h1.5v1.5H13.5V11z" fill="#FFFFFF"/>
+</svg>
