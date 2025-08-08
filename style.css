@@ -1,0 +1,789 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Estilos para botões primários */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background-image: linear-gradient(to right, #3b82f6, #2563eb);
+    color: white;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2), 0 2px 4px -1px rgba(59, 130, 246, 0.1);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3), 0 4px 6px -2px rgba(59, 130, 246, 0.2);
+}
+
+/* Estilos para botões secundários */
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: #3b82f6;
+    font-weight: 500;
+    border: 2px solid #3b82f6;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1), 0 2px 4px -1px rgba(59, 130, 246, 0.06);
+}
+
+/* Modo escuro para botões */
+.dark .btn-primary {
+    background-image: linear-gradient(to right, #4f46e5, #4338ca);
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2), 0 2px 4px -1px rgba(79, 70, 229, 0.1);
+}
+
+.dark .btn-primary:hover {
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3), 0 4px 6px -2px rgba(79, 70, 229, 0.2);
+}
+
+.dark .btn-secondary {
+    color: #6366f1;
+    border-color: #6366f1;
+}
+
+.dark .btn-secondary:hover {
+    background-color: rgba(99, 102, 241, 0.1);
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border: 3px solid white;
+}
+
+/* Container das tags */
+.tech-tags-container {
+    width: 100%;
+}
+
+/* Estilos para as tags de tecnologia */
+.tech-tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin: 0.1rem;
+}
+
+.tech-tag:hover {
+    background-color: #e5e7eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.tech-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 0.4rem;
+}
+
+/* Estilos para ícones de redes sociais */
+.social-icon-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4b5563;
+    transition: all 0.3s ease;
+}
+
+.social-icon-btn:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    transform: translateY(-2px);
+}
+
+.dark .social-icon-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.dark .social-icon-btn:hover {
+    background-color: rgba(79, 70, 229, 0.2);
+    color: #6366f1;
+}
+
+/* Animação do menu hamburguer */
+.hamburger-line {
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    margin-bottom: 6px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Animação do menu mobile */
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.mobile-menu.open {
+    max-height: 500px;
+}
+
+.menu-item {
+    opacity: 0;
+    transform: translateX(-16px);
+    transition: all 0.3s ease-out;
+}
+
+.mobile-menu.open .menu-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Dark Mode Styles */
+.dark .tech-tag {
+    background-color: #374151;
+    color: #d1d5db;
+    border-color: #4b5563;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dark .tech-tag:hover {
+    background-color: #4b5563;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dark .hamburger-line {
+    background-color: #e5e7eb;
+}
+
+/* Smooth transition for dark mode */
+html {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Botão de rolagem para baixo */
+#scrollToProjects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0 auto;
+}
+
+#scrollToProjects span {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+#scrollToProjects:hover .border-primary-600 {
+    border-color: #2563eb;
+}
+
+.dark #scrollToProjects:hover .border-primary-400 {
+    border-color: #818cf8;
+}
+
+/* Responsividade */
+@media (min-width: 640px) {
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .tech-tag {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .tech-icon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    #scrollToProjects {
+        bottom: 4rem;
+        width: 100%;
+        max-width: 150px;
+        margin: 0 auto;
+    }
+    
+    #scrollToProjects span {
+        font-size: 0.75rem;
+        white-space: nowrap;
+        display: block;
+        width: 100%;
+    }
+    
+    #scrollToProjects div {
+        width: 1rem;
+        height: 1rem;
+        margin-top: 0.25rem;
+    }
+}
+
+/* Estilos para os botões de filtro */
+.filter-btn {
+    padding: 0.5rem 1.25rem;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: 0;
+}
+
+.filter-btn:hover {
+    background-color: #e5e7eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.filter-btn:hover::before {
+    width: 150%;
+    height: 150%;
+}
+
+.filter-btn.active {
+    background-color: #3b82f6;
+    color: white;
+    border-color: #2563eb;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.5), 0 2px 4px -1px rgba(59, 130, 246, 0.3);
+}
+
+.dark .filter-btn {
+    background-color: #1f2937;
+    color: #d1d5db;
+    border-color: #374151;
+}
+
+.dark .filter-btn:hover {
+    background-color: #374151;
+}
+
+.dark .filter-btn.active {
+    background-color: #4f46e5;
+    color: white;
+    border-color: #4338ca;
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.5), 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+}
+
+/* Estilos para as categorias dos projetos */
+.project-category {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.75rem;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.project-card[data-category="web"] .project-category {
+    background-color: #dbeafe;
+    color: #1e40af;
+    border-color: #bfdbfe;
+}
+
+.project-card[data-category="app"] .project-category {
+    background-color: #dcfce7;
+    color: #166534;
+    border-color: #bbf7d0;
+}
+
+.project-card[data-category="design"] .project-category {
+    background-color: #fef3c7;
+    color: #92400e;
+    border-color: #fde68a;
+}
+
+.dark .project-category {
+    background-color: #374151;
+    color: #d1d5db;
+    border-color: #4b5563;
+}
+
+.dark .project-card[data-category="web"] .project-category {
+    background-color: rgba(30, 64, 175, 0.2);
+    color: #93c5fd;
+    border-color: rgba(30, 64, 175, 0.3);
+}
+
+.dark .project-card[data-category="app"] .project-category {
+    background-color: rgba(22, 101, 52, 0.2);
+    color: #86efac;
+    border-color: rgba(22, 101, 52, 0.3);
+}
+
+.dark .project-card[data-category="design"] .project-category {
+    background-color: rgba(146, 64, 14, 0.2);
+    color: #fcd34d;
+    border-color: rgba(146, 64, 14, 0.3);
+}
+
+/* Estilos para tags de tecnologia nos projetos */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    min-height: 2rem;
+    margin-top: 0.75rem;
+}
+
+.project-tech-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.6rem;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    white-space: nowrap;
+}
+
+.project-tech-tag:hover {
+    background-color: #e5e7eb;
+    transform: translateY(-1px);
+}
+
+.dark .project-tech-tag {
+    background-color: #374151;
+    color: #d1d5db;
+    border-color: #4b5563;
+}
+
+.dark .project-tech-tag:hover {
+    background-color: #4b5563;
+}
+
+/* Estilos para a seção de projetos */
+.project-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid rgba(229, 231, 235, 0.5);
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dark .project-card {
+    background: #1f2937;
+    border: 1px solid rgba(55, 65, 81, 0.5);
+}
+
+.project-image-container {
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
+}
+
+/* Overlay e botões de link do projeto */
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-link-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1f2937;
+    transition: all 0.3s ease;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.project-card:hover .project-link-btn {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.project-card:hover .project-link-btn:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.project-link-btn:hover {
+    background-color: #3b82f6;
+    color: white;
+    transform: translateY(-5px);
+}
+
+.dark .project-link-btn {
+    background-color: #1f2937;
+    color: white;
+}
+
+.dark .project-link-btn:hover {
+    background-color: #4f46e5;
+}
+
+.project-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-access-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.project-access-btn:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.5), 0 2px 4px -1px rgba(59, 130, 246, 0.3);
+}
+
+.project-access-btn i {
+    margin-left: 0.5rem;
+}
+
+.dark .project-access-btn {
+    background-color: #4f46e5;
+}
+
+.dark .project-access-btn:hover {
+    background-color: #4338ca;
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.5), 0 2px 4px -1px rgba(79, 70, 229, 0.3);
+}
+
+.project-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.dark .project-title {
+    color: #f3f4f6;
+}
+
+.project-description {
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark .project-description {
+    color: #9ca3af;
+}
+
+.arrow-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Efeito hover nos cards */
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: rgba(209, 213, 219, 0.8);
+}
+
+.dark .project-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+    border-color: rgba(75, 85, 99, 0.8);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .project-image-container {
+        height: 160px;
+    }
+    
+    .project-content {
+        padding: 1rem;
+    }
+}
+/* Modern Project Cards */
+.project-card-modern {
+    @apply bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group border border-gray-100 dark:border-gray-700;
+    transform: translateY(0);
+    position: relative;
+}
+
+.project-card-modern:hover {
+    transform: translateY(-8px);
+}
+
+.project-image-wrapper {
+    @apply relative overflow-hidden;
+    height: 240px;
+}
+
+.project-image-modern {
+    @apply w-full h-full object-cover transition-transform duration-500 group-hover:scale-110;
+}
+
+.project-overlay-modern {
+    @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6;
+}
+
+.project-tech-stack {
+    @apply flex flex-wrap gap-2;
+}
+
+.tech-badge {
+    @apply px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-sm rounded-full border border-white/30;
+}
+
+.project-content-modern {
+    @apply p-6;
+}
+
+.project-header {
+    @apply flex justify-between items-start mb-4;
+}
+
+.project-title {
+    @apply text-xl font-bold text-gray-900 dark:text-white;
+}
+
+.project-status {
+    @apply flex-shrink-0 ml-4;
+}
+
+.status-badge {
+    @apply px-3 py-1 text-xs font-medium rounded-full;
+}
+
+.status-badge.completed {
+    @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400;
+}
+
+.status-badge.in-progress {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400;
+}
+
+.status-badge.planned {
+    @apply bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400;
+}
+
+.project-description {
+    @apply text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4;
+}
+
+.project-features {
+    @apply flex flex-wrap gap-2 mb-6;
+}
+
+.feature-tag {
+    @apply px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-lg flex items-center;
+}
+
+.project-actions {
+    @apply flex gap-3;
+}
+
+.btn-project-primary {
+    @apply flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center justify-center;
+}
+
+.btn-project-secondary {
+    @apply flex-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center justify-center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-actions {
+        @apply flex-col;
+    }
+    
+    .btn-project-primary,
+    .btn-project-secondary {
+        @apply flex-none;
+    }
+}
+
+/* Card shine effect */
+.project-card-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+    z-index: 1;
+}
+
+.project-card-modern:hover::before {
+    left: 100%;
+}
+
+/* Manter apenas o scroll-margin-top para offset do header */
+section {
+    scroll-margin-top: 80px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    scroll-padding-top: 80px;
+}
+
+/* Remover scroll-behavior: inherit para evitar conflitos */
+* {
+    /* Comentado para usar Tailwind: scroll-behavior: inherit; */
+}
+
+/* Melhorar performance do scroll */
+.project-card,
+.project-card-modern {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* Otimizar transições para não interferir no scroll */
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    will-change: max-height;
+}
+
+/* Garantir que elementos fixos não interfiram */
+header {
+    will-change: transform;
+    backface-visibility: hidden;
+}
