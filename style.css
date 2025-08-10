@@ -1,0 +1,1277 @@
+/*
+ * Arquivo: style.css
+ * Autor: João Paulo (com otimizações e correções de Manus)
+ * Descrição: Folha de estilos principal para o portfólio, com layout de grid corrigido,
+ *            animações aprimoradas e design totalmente responsivo.
+ * Última Atualização: 08/08/2025
+ */
+
+/* --- Importações e Estilos Globais --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #f9fafb;
+    color: #374151;
+}
+
+.dark body {
+    background-color: #111827;
+    color: #d1d5db;
+}
+
+/* --- Animações e Efeitos de Fundo --- */
+
+.bubbles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.15));
+    border-radius: 50%;
+    animation: float-bubble 25s infinite linear;
+    opacity: 0;
+}
+
+.dark .bubble {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(129, 140, 248, 0.15));
+}
+
+.bubble.small {
+    width: 30px;
+    height: 30px;
+    animation-duration: 20s;
+}
+
+.bubble.medium {
+    width: 60px;
+    height: 60px;
+    animation-duration: 30s;
+}
+
+.bubble.large {
+    width: 90px;
+    height: 90px;
+    animation-duration: 40s;
+}
+
+.bubble:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+    left: 20%;
+    animation-delay: 3s;
+}
+
+.bubble:nth-child(3) {
+    left: 30%;
+    animation-delay: 6s;
+}
+
+.bubble:nth-child(4) {
+    left: 40%;
+    animation-delay: 9s;
+}
+
+.bubble:nth-child(5) {
+    left: 50%;
+    animation-delay: 12s;
+}
+
+@keyframes float-bubble {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* --- Animações Globais --- */
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes borderGlow {
+    from {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.2), 0 0 30px rgba(139, 92, 246, 0.2);
+    }
+    to {
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.4), 0 0 45px rgba(139, 92, 246, 0.3);
+    }
+}
+
+@keyframes pulseGlow {
+    from {
+        box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+    }
+    to {
+        box-shadow: 0 0 25px rgba(34, 197, 94, 0.5);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* --- Componentes Reutilizáveis --- */
+
+/* --- Menu Mobile Corrigido --- */
+.mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 50;
+}
+
+.mobile-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #374151;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.dark .mobile-nav-link {
+    color: #e5e7eb;
+}
+
+.mobile-nav-link:hover {
+    background-color: #f3f4f6;
+    color: #3b82f6;
+    transform: translateX(4px);
+}
+
+.dark .mobile-nav-link:hover {
+    background-color: #374151;
+    color: #60a5fa;
+}
+
+.menu-item {
+    opacity: 0;
+    transform: translateX(-16px);
+    transition: all 0.3s ease;
+}
+
+.social-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: #f3f4f6;
+    color: #374151;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.dark .social-icon-btn {
+    background: #374151;
+    color: #e5e7eb;
+}
+
+.social-icon-btn:hover {
+    background: #3b82f6;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* --- Hamburger Lines Corrigido --- */
+.hamburger-line-1, .hamburger-line-2, .hamburger-line-3 {
+    width: 20px;
+    height: 2px;
+    background-color: #374151;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform-origin: center;
+    border-radius: 1px;
+}
+
+.dark .hamburger-line-1, .dark .hamburger-line-2, .dark .hamburger-line-3 {
+    background-color: #e5e7eb;
+}
+
+#menu-btn.active .hamburger-line-1 {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-btn.active .hamburger-line-2 {
+    opacity: 0;
+    transform: scale(0);
+}
+
+#menu-btn.active .hamburger-line-3 {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* --- Responsividade da Seção de Formação para Mobile --- */
+@media (max-width: 1023px) {
+    /* Container principal da timeline - transformar em flexbox para controle total */
+    .space-y-16 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+    
+    /* Reorganizar todos os cards individuais */
+    .space-y-16 > .relative {
+        display: contents !important; /* Remove o container para acessar os cards internos */
+    }
+    
+    /* Grids internos dos cards */
+    .grid.grid-cols-1.lg\\:grid-cols-2 {
+        display: contents !important; /* Remove o grid para controle individual dos cards */
+    }
+    
+    /* Ordem específica dos cards em mobile */
+    /* 1. Card principal do ADS */
+    .space-y-16 > .relative:nth-child(1) .grid > div:first-child {
+        order: 1 !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    /* 2. Card principal do Ensino Médio */
+    .space-y-16 > .relative:nth-child(2) .grid > div:last-child {
+        order: 2 !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    /* 3. Card de Habilidades Adquiridas (do ADS) */
+    .space-y-16 > .relative:nth-child(1) .grid > div:last-child {
+        order: 3 !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    /* 4. Card de Tecnologias Estudadas (do Ensino Médio) */
+    .space-y-16 > .relative:nth-child(2) .grid > div:first-child {
+        order: 4 !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    /* Remover order classes originais no mobile */
+    .order-1,
+    .order-2 {
+        order: unset !important;
+    }
+    
+    /* Ajustar alinhamentos de texto */
+    .lg\\:text-right {
+        text-align: left !important;
+    }
+    
+    .lg\\:justify-end {
+        justify-content: flex-start !important;
+    }
+    
+    /* Remover paddings laterais */
+    .lg\\:pr-12,
+    .lg\\:pl-12 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    
+    /* Remover margens top dos cards */
+    .mt-6,
+    .sm\\:mt-8,
+    .lg\\:mt-0 {
+        margin-top: 0 !important;
+    }
+    
+    /* Ocultar elementos de timeline desktop */
+    .hidden.lg\\:block {
+        display: none !important;
+    }
+}
+
+/* --- Estilos dos Cards de Projeto --- */
+
+/* Grid de Projetos */
+#project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    align-items: stretch;
+    justify-items: center;
+}
+
+@media (min-width: 768px) {
+    #project-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    #project-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+.project-card-modern {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 550px;
+    height: 100%;
+    width: 100%;
+    max-width: 400px;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 0.6s ease-out forwards;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.dark .project-card-modern {
+    background: #1f2937;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+}
+
+.project-card-modern:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    animation: borderGlow 1.5s infinite alternate;
+}
+
+.dark .project-card-modern:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+/* Imagem do Projeto */
+.project-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 240px;
+}
+
+.project-image-modern {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.6s ease;
+    filter: brightness(0.95);
+}
+
+.project-card-modern:hover .project-image-modern {
+    transform: scale(1.1);
+    filter: brightness(1.05);
+}
+
+.project-overlay-modern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(139, 92, 246, 0.8));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card-modern:hover .project-overlay-modern {
+    opacity: 1;
+}
+
+/* Tech Stack */
+.project-tech-stack {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.tech-badge {
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.9);
+    color: #374151;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .tech-badge {
+    background: rgba(31, 41, 55, 0.9);
+    color: #d1d5db;
+    border-color: rgba(75, 85, 99, 0.3);
+}
+
+.tech-badge:hover {
+    transform: scale(1.05);
+    background: rgba(59, 130, 246, 0.9);
+    color: white;
+}
+
+/* Conteúdo do Card */
+.project-content-modern {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    min-height: 300px;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    transition: color 0.3s ease;
+}
+
+.dark .project-title {
+    color: white;
+}
+
+.project-card-modern:hover .project-title {
+    color: #3b82f6;
+}
+
+.dark .project-card-modern:hover .project-title {
+    color: #60a5fa;
+}
+
+/* Status Badge */
+.project-status {
+    margin-bottom: 1rem;
+}
+
+.status-badge {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    transition: all 0.4s ease;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+}
+
+.status-badge.completed {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.status-badge.in-progress {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+}
+
+.status-badge.planned {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+}
+
+.status-badge:hover {
+    transform: scale(1.05);
+    animation: pulseGlow 1s infinite alternate;
+}
+
+.status-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+/* Descrição e Features */
+.project-description {
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    min-height: 3rem;
+    display: -webkit-box;
+    
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.dark .project-description {
+    color: #9ca3af;
+}
+
+.project-features {
+    margin-bottom: 1.5rem;
+}
+
+.feature-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    margin: 0.25rem 0.5rem 0.25rem 0;
+    transition: all 0.3s ease;
+}
+
+.dark .feature-tag {
+    background: #374151;
+    color: #d1d5db;
+}
+
+.feature-tag:hover {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Ações do Projeto */
+.project-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.dark .project-actions {
+    border-top-color: #374151;
+}
+
+.btn-project-primary, .btn-project-secondary {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-project-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-project-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.btn-project-secondary {
+    background-color: transparent;
+    color: #4b5563;
+    border-color: #d1d5db;
+}
+
+.dark .btn-project-secondary {
+    color: #d1d5db;
+    border-color: #4b5563;
+}
+
+.btn-project-secondary:hover {
+    background-color: #f3f4f6;
+    border-color: #4b5563;
+    transform: translateY(-2px);
+}
+
+.dark .btn-project-secondary:hover {
+    background-color: #374151;
+    border-color: #6b7280;
+}
+
+/* --- Tech Tags Aprimoradas --- */
+.tech-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+    color: #374151;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    margin: 0.25rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.dark .tech-tag {
+    background: linear-gradient(135deg, #374151, #4b5563);
+    color: #d1d5db;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.tech-tag:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.tech-tag.javascript {
+    background: linear-gradient(135deg, #f7df1e, #f0d91d);
+    color: #000;
+}
+
+.tech-tag.react {
+    background: linear-gradient(135deg, #61dafb, #21d4fd);
+    color: #000;
+}
+
+.tech-tag.php {
+    background: linear-gradient(135deg, #777bb4, #8892bf);
+    color: white;
+}
+
+.tech-tag.python {
+    background: linear-gradient(135deg, #3776ab, #ffd43b);
+    color: white;
+}
+
+.tech-tag.java {
+    background: linear-gradient(135deg, #ed8b00, #f89820);
+    color: white;
+}
+
+/* --- Seção de Formação Acadêmica --- */
+.formation-section {
+    min-height: 100vh;
+    padding: 4rem 0;
+}
+
+/* Animações personalizadas para a seção de formação */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animation-delay-1000 {
+    animation-delay: 1s;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
+/* Efeitos de gradiente para texto */
+.bg-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Backdrop blur personalizado */
+.backdrop-blur-xl {
+    backdrop-filter: blur(24px);
+}
+
+/* Sombras personalizadas */
+.shadow-cyan-500\/25 {
+    box-shadow: 0 25px 50px -12px rgba(6, 182, 212, 0.25);
+}
+
+.shadow-cyan-500\/50 {
+    box-shadow: 0 25px 50px -12px rgba(6, 182, 212, 0.5);
+}
+
+.shadow-emerald-500\/25 {
+    box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.25);
+}
+
+.shadow-emerald-500\/30 {
+    box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.3);
+}
+
+.shadow-emerald-500\/50 {
+    box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.5);
+}
+
+.shadow-blue-500\/25 {
+    box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25);
+}
+
+.shadow-blue-500\/30 {
+    box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.3);
+}
+
+.shadow-blue-500\/50 {
+    box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.5);
+}
+
+/* Efeitos hover para cards de formação */
+#formacao .group:hover {
+    transform: scale(1.02) translateY(-5px);
+}
+
+/* Animações de entrada escalonada */
+#formacao [data-aos="fade-right"] {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease-out;
+}
+
+#formacao [data-aos="fade-left"] {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease-out;
+}
+
+#formacao [data-aos="fade-up"] {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+/* Quando os elementos entram na viewport */
+#formacao [data-aos].aos-animate {
+    opacity: 1;
+    transform: translate(0);
+}
+
+/* Responsividade para a seção de formação */
+@media (max-width: 1024px) {
+    #formacao h2 {
+        font-size: 3rem;
+        line-height: 1.1;
+    }
+    
+    #formacao .lg\\:gap-20 {
+        gap: 2rem;
+    }
+    
+    #formacao .lg\\:pr-20 {
+        padding-right: 1rem;
+    }
+    
+    #formacao .lg\\:pl-20 {
+        padding-left: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #formacao {
+        padding: 3rem 1rem;
+    }
+    
+    #formacao h2 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    
+    #formacao .space-y-20 {
+        gap: 3rem;
+    }
+    
+    #formacao .lg\\:space-y-32 {
+        gap: 3rem;
+    }
+    
+    #formacao .mb-12 {
+        margin-bottom: 2rem;
+    }
+    
+    #formacao .grid-cols-2 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    #formacao .lg\\:grid-cols-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    #formacao {
+        padding: 2rem 0.5rem;
+    }
+    
+    #formacao h2 {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+    
+    #formacao .text-xl {
+        font-size: 1rem;
+    }
+    
+    #formacao .p-8 {
+        padding: 1.5rem;
+    }
+    
+    #formacao .lg\\:p-10 {
+        padding: 1.5rem;
+    }
+    
+    #formacao .text-3xl {
+        font-size: 1.5rem;
+    }
+    
+    #formacao .lg\\:text-4xl {
+        font-size: 1.75rem;
+    }
+    
+    #formacao .text-2xl {
+        font-size: 1.25rem;
+    }
+    
+    #formacao .px-10 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    
+    #formacao .py-5 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+/* Efeitos especiais para elementos interativos */
+#formacao .group:hover .fas {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+#formacao .group:hover .bg-gradient-to-br {
+    filter: brightness(1.1);
+    transition: filter 0.3s ease;
+}
+
+/* Animação de pulso personalizada para indicadores */
+#formacao .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+/* --- Responsividade --- */
+@media (max-width: 1024px) {
+    .formation-section {
+        padding: 3rem 1rem;
+    }
+    
+    .formation-timeline::before {
+        left: 2rem;
+    }
+    
+    .formation-indicator {
+        left: 2rem;
+    }
+}
+
+/* FORÇA LAYOUT MOBILE - MÁXIMA PRIORIDADE */
+@media screen and (max-width: 768px) {
+    /* --- Hero Section Mobile - Seletores mais específicos --- */
+    body section#home.min-h-screen.relative.flex.items-center.justify-center {
+        padding-top: 5rem !important;
+        padding-bottom: 2rem !important;
+        min-height: 100vh !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: column !important;
+    }
+    
+    /* Container principal do hero */
+    section#home .max-w-7xl.mx-auto {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+    }
+    
+    /* Grid do hero - transformar em flexbox */
+    section#home .grid.grid-cols-1 {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+        grid-template-columns: none !important;
+    }
+    
+    /* Imagem de perfil - menor no mobile */
+    section#home .order-1.lg\:order-2 {
+        order: 1 !important;
+        margin-bottom: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+    
+    /* Container da foto */
+     section#home .h-48.w-48,
+     section#home .sm\:h-64.sm\:w-64,
+     section#home .lg\:h-80.lg\:w-80 {
+         height: 9rem !important; /* 144px */
+         width: 9rem !important;
+         min-height: 9rem !important;
+         min-width: 9rem !important;
+     }
+    
+    /* Conteúdo de texto */
+    section#home .order-2.lg\:order-1 {
+        order: 2 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Card de conteúdo */
+    section#home .bg-white\/30 {
+        padding: 1.25rem !important;
+        margin: 0 !important;
+        border-radius: 1.25rem !important;
+        width: 100% !important;
+    }
+    
+    /* Título principal */
+    section#home h1.text-3xl {
+        font-size: 1.75rem !important; /* 28px */
+        line-height: 1.2 !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    /* Descrição */
+    section#home p.text-base {
+        font-size: 0.8rem !important; /* 12.8px */
+        line-height: 1.4 !important;
+        margin-bottom: 1.25rem !important;
+    }
+    
+    /* Container dos botões */
+    section#home .flex.flex-col.sm\:flex-row {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+        margin-bottom: 1.25rem !important;
+        width: 100% !important;
+    }
+    
+    /* Botões */
+    section#home .btn-primary,
+    section#home .btn-secondary {
+        padding: 0.625rem 1.25rem !important;
+        font-size: 0.8rem !important;
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Seção de tecnologias */
+    section#home .mt-6.sm\:mt-8 {
+        margin-top: 1rem !important;
+    }
+    
+    /* Tecnologias */
+    section#home .tech-tags.flex {
+        justify-content: center !important;
+        gap: 0.375rem !important;
+        flex-wrap: wrap !important;
+    }
+    
+    section#home .tech-tag {
+        font-size: 0.7rem !important;
+        padding: 0.25rem 0.5rem !important;
+    }
+    
+    section#home .tech-icon {
+        width: 0.625rem !important;
+        height: 0.625rem !important;
+    }
+    
+    /* Badge desenvolvedor */
+    section#home .inline-block.px-3 {
+        font-size: 0.7rem !important;
+        padding: 0.25rem 0.5rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    /* Texto das tecnologias */
+    section#home p.text-xs {
+        font-size: 0.7rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    /* Remover elementos decorativos no mobile */
+    section#home .absolute.-inset-4,
+    section#home .absolute.-top-2,
+    section#home .absolute.-bottom-2,
+    section#home .absolute.top-1\/2,
+    section#home .hidden.lg\:block {
+        display: none !important;
+    }
+    
+    /* --- Projetos Mobile --- */
+    #project-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .project-actions {
+        flex-direction: column;
+    }
+    
+    .formation-section {
+        padding: 2rem 1rem;
+    }
+    
+    .formation-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .project-content-modern {
+        padding: 1rem;
+    }
+    
+    .project-image-wrapper {
+        height: 200px;
+    }
+    
+    .formation-card {
+        padding: 1rem;
+    }
+}
+
+/* --- Estilos dos Botões --- */
+
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3), 0 2px 4px -1px rgba(59, 130, 246, 0.2);
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4), 0 4px 6px -2px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3), 0 2px 4px -1px rgba(59, 130, 246, 0.2);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #374151;
+    padding: 0.75rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(59, 130, 246, 0.2);
+    cursor: pointer;
+    font-size: 0.875rem;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2), 0 2px 4px -1px rgba(59, 130, 246, 0.1);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+/* Estilos para modo escuro */
+.dark .btn-secondary {
+    color: #e5e7eb;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+.dark .btn-secondary:hover {
+    background: rgba(139, 92, 246, 0.1);
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.2), 0 2px 4px -1px rgba(139, 92, 246, 0.1);
+}
+
+/* Efeito de shimmer nos botões */
+.btn-primary::before,
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before,
+.btn-secondary:hover::before {
+    left: 100%;
+}
+
+/* Responsividade dos botões */
+@media (max-width: 640px) {
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.625rem 1.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* --- Estilos do Botão de Scroll --- */
+#scrollToProjects {
+    min-height: 44px; /* Área de toque mínima para mobile */
+    min-width: 44px;
+    padding: 0.5rem;
+}
+
+#scrollToProjects span {
+    white-space: nowrap;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsividade específica do botão de scroll */
+@media (max-width: 480px) {
+    #scrollToProjects {
+        min-height: 40px;
+        min-width: 40px;
+        padding: 0.25rem;
+    }
+    
+    #scrollToProjects span {
+        font-size: 0.75rem;
+        max-width: 100px;
+    }
+}
+
+@media (max-width: 360px) {
+    #scrollToProjects span {
+        font-size: 0.7rem;
+        max-width: 80px;
+    }
+}
+
+/* --- Esconder card do Ensino Médio no mobile --- */
+@media (max-width: 768px) {
+    /* Esconder o card do Ensino Médio no mobile */
+    #formacao .ensino-medio-card {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        max-height: 0 !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+        top: -9999px !important;
+        z-index: -1 !important;
+    }
+}
+
