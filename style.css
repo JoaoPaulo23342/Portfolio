@@ -4,6 +4,7 @@
  * Descrição: Folha de estilos principal para o portfólio, com layout de grid corrigido,
  *            animações aprimoradas e design totalmente responsivo.
  * Última Atualização: 08/08/2025
+ * Versão: 2.1.1 - Fix Firefox Spacing
  */
 
 /* --- Importações e Estilos Globais --- */
@@ -37,69 +38,192 @@ body {
 
 .bubble {
     position: absolute;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.15));
     border-radius: 50%;
-    animation: float-bubble 25s infinite linear;
     opacity: 0;
+    backdrop-filter: blur(2px);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2), 
+                0 0 20px rgba(59, 130, 246, 0.1);
 }
 
-.dark .bubble {
-    background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(129, 140, 248, 0.15));
+/* Diferentes tipos de bolhas com gradientes mais bonitos */
+.bubble.type-1 {
+    background: radial-gradient(circle at 30% 30%, 
+                rgba(59, 130, 246, 0.15), 
+                rgba(147, 197, 253, 0.08), 
+                rgba(59, 130, 246, 0.05));
+}
+
+.bubble.type-2 {
+    background: radial-gradient(circle at 30% 30%, 
+                rgba(139, 92, 246, 0.15), 
+                rgba(196, 181, 253, 0.08), 
+                rgba(139, 92, 246, 0.05));
+}
+
+.bubble.type-3 {
+    background: radial-gradient(circle at 30% 30%, 
+                rgba(34, 197, 94, 0.15), 
+                rgba(134, 239, 172, 0.08), 
+                rgba(34, 197, 94, 0.05));
+}
+
+.bubble.type-4 {
+    background: radial-gradient(circle at 30% 30%, 
+                rgba(236, 72, 153, 0.15), 
+                rgba(251, 207, 232, 0.08), 
+                rgba(236, 72, 153, 0.05));
+}
+
+.dark .bubble.type-1 {
+    background: radial-gradient(circle at 30% 30%, 
+                rgba(79, 70, 229, 0.2), 
+                rgba(129, 140, 248, 0.1), 
+                rgba(79, 70, 229, 0.05));
+}
+
+.dark .bubble.type-2 {
+    background: radial-gradient(circle at 30% 30%, 
+                rgba(168, 85, 247, 0.2), 
+                rgba(196, 181, 253, 0.1), 
+                rgba(168, 85, 247, 0.05));
+}
+
+.dark .bubble.type-3 {
+    background: radial-gradient(circle at 30% 30%, 
+                rgba(16, 185, 129, 0.2), 
+                rgba(110, 231, 183, 0.1), 
+                rgba(16, 185, 129, 0.05));
+}
+
+.dark .bubble.type-4 {
+    background: radial-gradient(circle at 30% 30%, 
+                rgba(219, 39, 119, 0.2), 
+                rgba(244, 114, 182, 0.1), 
+                rgba(219, 39, 119, 0.05));
+}
+
+/* Tamanhos menores e mais variados */
+.bubble.tiny {
+    width: 8px;
+    height: 8px;
+    animation: float-bubble-slow 35s infinite linear;
 }
 
 .bubble.small {
-    width: 30px;
-    height: 30px;
-    animation-duration: 20s;
+    width: 15px;
+    height: 15px;
+    animation: float-bubble-medium 28s infinite linear;
 }
 
 .bubble.medium {
-    width: 60px;
-    height: 60px;
-    animation-duration: 30s;
+    width: 25px;
+    height: 25px;
+    animation: float-bubble-fast 22s infinite linear;
 }
 
 .bubble.large {
-    width: 90px;
-    height: 90px;
-    animation-duration: 40s;
+    width: 35px;
+    height: 35px;
+    animation: float-bubble-slow 40s infinite linear;
 }
 
-.bubble:nth-child(1) {
-    left: 10%;
-    animation-delay: 0s;
-}
+/* Posicionamento mais distribuído */
+.bubble:nth-child(1) { left: 5%; animation-delay: 0s; }
+.bubble:nth-child(2) { left: 15%; animation-delay: 2s; }
+.bubble:nth-child(3) { left: 25%; animation-delay: 4s; }
+.bubble:nth-child(4) { left: 35%; animation-delay: 6s; }
+.bubble:nth-child(5) { left: 45%; animation-delay: 8s; }
+.bubble:nth-child(6) { left: 55%; animation-delay: 10s; }
+.bubble:nth-child(7) { left: 65%; animation-delay: 12s; }
+.bubble:nth-child(8) { left: 75%; animation-delay: 14s; }
+.bubble:nth-child(9) { left: 85%; animation-delay: 16s; }
+.bubble:nth-child(10) { left: 95%; animation-delay: 18s; }
+.bubble:nth-child(11) { left: 10%; animation-delay: 20s; }
+.bubble:nth-child(12) { left: 20%; animation-delay: 22s; }
+.bubble:nth-child(13) { left: 30%; animation-delay: 24s; }
+.bubble:nth-child(14) { left: 40%; animation-delay: 26s; }
+.bubble:nth-child(15) { left: 50%; animation-delay: 28s; }
+.bubble:nth-child(16) { left: 60%; animation-delay: 30s; }
+.bubble:nth-child(17) { left: 70%; animation-delay: 32s; }
+.bubble:nth-child(18) { left: 80%; animation-delay: 34s; }
+.bubble:nth-child(19) { left: 90%; animation-delay: 36s; }
+.bubble:nth-child(20) { left: 12%; animation-delay: 38s; }
 
-.bubble:nth-child(2) {
-    left: 20%;
-    animation-delay: 3s;
-}
-
-.bubble:nth-child(3) {
-    left: 30%;
-    animation-delay: 6s;
-}
-
-.bubble:nth-child(4) {
-    left: 40%;
-    animation-delay: 9s;
-}
-
-.bubble:nth-child(5) {
-    left: 50%;
-    animation-delay: 12s;
-}
-
-@keyframes float-bubble {
+/* Animações mais suaves e variadas */
+@keyframes float-bubble-slow {
     0% {
-        transform: translateY(100vh) rotate(0deg);
+        transform: translateY(100vh) translateX(0) rotate(0deg) scale(0);
         opacity: 0;
     }
-    10%, 90% {
-        opacity: 0.7;
+    5% {
+        opacity: 0.6;
+        transform: translateY(95vh) translateX(0) rotate(18deg) scale(1);
+    }
+    25% {
+        transform: translateY(75vh) translateX(-20px) rotate(90deg) scale(1.1);
+    }
+    50% {
+        transform: translateY(50vh) translateX(20px) rotate(180deg) scale(0.9);
+    }
+    75% {
+        transform: translateY(25vh) translateX(-10px) rotate(270deg) scale(1.05);
+    }
+    95% {
+        opacity: 0.3;
+        transform: translateY(5vh) translateX(0) rotate(342deg) scale(0.8);
     }
     100% {
-        transform: translateY(-10vh) rotate(360deg);
+        transform: translateY(-5vh) translateX(0) rotate(360deg) scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes float-bubble-medium {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg) scale(0);
+        opacity: 0;
+    }
+    8% {
+        opacity: 0.7;
+        transform: translateY(92vh) translateX(0) rotate(25deg) scale(1);
+    }
+    30% {
+        transform: translateY(70vh) translateX(15px) rotate(120deg) scale(1.2);
+    }
+    60% {
+        transform: translateY(40vh) translateX(-25px) rotate(240deg) scale(0.8);
+    }
+    90% {
+        opacity: 0.4;
+        transform: translateY(10vh) translateX(10px) rotate(335deg) scale(0.9);
+    }
+    100% {
+        transform: translateY(-10vh) translateX(0) rotate(360deg) scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes float-bubble-fast {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+        transform: translateY(90vh) translateX(0) rotate(36deg) scale(1);
+    }
+    35% {
+        transform: translateY(65vh) translateX(-30px) rotate(150deg) scale(1.3);
+    }
+    65% {
+        transform: translateY(35vh) translateX(30px) rotate(270deg) scale(0.7);
+    }
+    85% {
+        opacity: 0.5;
+        transform: translateY(15vh) translateX(-15px) rotate(324deg) scale(1.1);
+    }
+    100% {
+        transform: translateY(-15vh) translateX(0) rotate(360deg) scale(0);
         opacity: 0;
     }
 }
@@ -316,9 +440,48 @@ body {
         margin-top: 0 !important;
     }
     
+    /* Forçar remoção de espaçamentos extras - compatibilidade Firefox */
+    .order-3,
+    .order-4 {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* Garantir que cards ocultos não ocupem espaço */
+    .hidden.sm\\:block {
+        display: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+    }
+    
     /* Ocultar elementos de timeline desktop */
     .hidden.lg\\:block {
         display: none !important;
+    }
+}
+
+/* --- Fix específico para Firefox - Formações --- */
+@-moz-document url-prefix() {
+    @media (max-width: 1023px) {
+        #formacao .space-y-16 > .relative .grid > div {
+            margin-top: 0 !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        #formacao .hidden.sm\\:block {
+            display: none !important;
+            position: absolute !important;
+            left: -9999px !important;
+            visibility: hidden !important;
+        }
+        
+        #formacao .order-3,
+        #formacao .order-4 {
+            margin: 0 !important;
+        }
     }
 }
 
