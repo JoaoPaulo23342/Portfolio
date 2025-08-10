@@ -4,7 +4,6 @@
  * Descrição: Folha de estilos principal para o portfólio, com layout de grid corrigido,
  *            animações aprimoradas e design totalmente responsivo.
  * Última Atualização: 08/08/2025
- * Versão: 2.1.1 - Fix Firefox Spacing
  */
 
 /* --- Importações e Estilos Globais --- */
@@ -440,48 +439,9 @@ body {
         margin-top: 0 !important;
     }
     
-    /* Forçar remoção de espaçamentos extras - compatibilidade Firefox */
-    .order-3,
-    .order-4 {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-    }
-    
-    /* Garantir que cards ocultos não ocupem espaço */
-    .hidden.sm\\:block {
-        display: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        height: 0 !important;
-        width: 0 !important;
-        overflow: hidden !important;
-    }
-    
     /* Ocultar elementos de timeline desktop */
     .hidden.lg\\:block {
         display: none !important;
-    }
-}
-
-/* --- Fix específico para Firefox - Formações --- */
-@-moz-document url-prefix() {
-    @media (max-width: 1023px) {
-        #formacao .space-y-16 > .relative .grid > div {
-            margin-top: 0 !important;
-            margin-bottom: 1rem !important;
-        }
-        
-        #formacao .hidden.sm\\:block {
-            display: none !important;
-            position: absolute !important;
-            left: -9999px !important;
-            visibility: hidden !important;
-        }
-        
-        #formacao .order-3,
-        #formacao .order-4 {
-            margin: 0 !important;
-        }
     }
 }
 
