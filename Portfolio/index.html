@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Paulo - Dev Fullstack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen dark:bg-gray-900">
+    <header>
+        <nav class="bg-gray-800 shadow-lg dark:bg-gray-950">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="flex justify-between items-center h-16">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="#" class="text-white text-lg font-semibold">JP</a>
+                    </div>
+                    
+                    <!-- Menu Desktop -->
+                    <div class="hidden md:flex space-x-8 items-center">
+                        <a href="#" class="text-white hover:text-gray-300 px-3 py-2 transition duration-300 dark:hover:text-gray-400">Home</a>
+                        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 transition duration-300 dark:text-gray-400 dark:hover:text-gray-200">Sobre</a>
+                        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 transition duration-300 dark:text-gray-400 dark:hover:text-gray-200">Projetos</a>
+                        <div class="flex space-x-4 ml-4">
+                            <a href="#" class="text-gray-300 hover:text-white transition duration-300 dark:hover:text-gray-400">
+                                <i class="fab fa-linkedin-in text-lg"></i>
+                            </a>
+                            <a href="#" class="text-gray-300 hover:text-white transition duration-300 dark:hover:text-gray-400">
+                                <i class="fab fa-github text-lg"></i>
+                            </a>
+                        </div>
+                        <!-- Botão Dark Mode -->
+                        <button id="theme-toggle" type="button" class="text-gray-300 hover:text-white focus:outline-none dark:text-gray-400 dark:hover:text-gray-200 p-2 rounded-full hover:bg-gray-700 dark:hover:bg-gray-800">
+                            <i id="theme-icon" class="fas fa-moon text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Botão Mobile -->
+                    <div class="md:hidden flex items-center space-x-4">
+                        <!-- Botão Dark Mode Mobile -->
+                        <button id="theme-toggle-mobile" type="button" class="text-gray-300 hover:text-white focus:outline-none dark:text-gray-400 dark:hover:text-gray-200 p-2 rounded-full hover:bg-gray-700 dark:hover:bg-gray-800">
+                            <i id="theme-icon-mobile" class="fas fa-moon text-xl"></i>
+                        </button>
+                        <button class="hamburger focus:outline-none" id="menu-btn">
+                            <div class="hamburger-line dark:bg-gray-200"></div>
+                            <div class="hamburger-line dark:bg-gray-200"></div>
+                            <div class="hamburger-line dark:bg-gray-200"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Menu Mobile -->
+            <div class="mobile-menu md:hidden bg-gray-800 dark:bg-gray-950" id="mobile-menu">
+                <ul class="px-2 pt-2 pb-4 space-y-1">
+                    <li class="menu-item">
+                        <a href="#" class="block px-3 py-3 text-white bg-gray-900 rounded-md text-base font-medium dark:bg-gray-800">Home</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="block px-3 py-3 text-gray-300 hover:bg-gray-700 rounded-md text-base font-medium dark:text-gray-400 dark:hover:bg-gray-800">Sobre</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="block px-3 py-3 text-gray-300 hover:bg-gray-700 rounded-md text-base font-medium dark:text-gray-400 dark:hover:bg-gray-800">Projetos</a>
+                    </li>
+                    <li class="menu-item flex space-x-4 justify-center py-3">
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300 dark:hover:text-gray-400">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300 dark:hover:text-gray-400">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Conteúdo Principal -->
+    <main class="flex-grow pt-12 pb-8 px-4 mx-auto w-full">
+        <div class="flex flex-col items-center">
+            <!-- Foto -->
+            <div class="mb-6">
+                <img src="assets/images/perfil.webp" alt="João Paulo" 
+                     class="profile-pic rounded-full shadow-lg object-cover dark:border-gray-600">
+            </div>
+            
+            <!-- Texto -->
+            <div class="text-center w-full px-4">
+                <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Hello World!</h1>
+                <p class="text-gray-600 mt-1 dark:text-gray-400">Meu nome é</p>
+                <h2 class="text-3xl font-bold text-blue-600 mt-2 dark:text-blue-400">João Paulo</h2>
+                <p class="text-lg text-gray-700 mt-1 dark:text-gray-300">Desenvolvedor Fullstack</p>
+                
+                <p class="text-gray-600 mt-4 mx-auto leading-relaxed max-w-md dark:text-gray-400">
+                    Transformo necessidades em aplicações reais e funcionais. 
+                    Desenvolvo sistemas através da minha paixão por tecnologia, 
+                    criando soluções inovadoras para desafios complexos.
+                </p>
+                
+                <!-- Tecnologias em linha única -->
+                <div class="tech-tags-container mt-6 w-full">
+                    <div class="tech-tags flex flex-wrap justify-center gap-2 px-2">
+                        <span class="tech-tag dark:bg-gray-700 dark:text-gray-200">
+                            <img src="./assets/icons/tech/github.svg" alt="GitHub" class="tech-icon">
+                            GitHub
+                        </span>
+                        <span class="tech-tag dark:bg-gray-700 dark:text-gray-200">
+                            <img src="./assets/icons/tech/html.svg" alt="HTML" class="tech-icon">
+                            HTML
+                        </span>
+                        <span class="tech-tag dark:bg-gray-700 dark:text-gray-200">
+                            <img src="./assets/icons/tech/css.svg" alt="CSS" class="tech-icon">
+                            CSS
+                        </span>
+                        <span class="tech-tag dark:bg-gray-700 dark:text-gray-200">
+                            <img src="./assets/icons/tech/javascript.svg" alt="JavaScript" class="tech-icon">
+                            JavaScript
+                        </span>
+                        <span class="tech-tag dark:bg-gray-700 dark:text-gray-200">
+                            <img src="./assets/icons/tech/reactjs.svg" alt="React" class="tech-icon">
+                            React
+                        </span>
+                        <span class="tech-tag dark:bg-gray-700 dark:text-gray-200">
+                            <img src="./assets/icons/tech/nodejs.svg" alt="Node.js" class="tech-icon">
+                            Node.js
+                        </span>
+                        <span class="tech-tag dark:bg-gray-700 dark:text-gray-200">
+                            <img src="./assets/icons/tech/php.svg" alt="Node.js" class="tech-icon">
+                            PHP
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé ajustado -->
+    <footer class="py-4 text-center text-sm text-gray-500 border-t mt-auto dark:border-gray-700 dark:text-gray-400">
+        © 2023 João Paulo - Todos os direitos reservados
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
