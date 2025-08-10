@@ -1091,7 +1091,7 @@
                         Envie uma Mensagem
                     </h3>
                     
-                    <form action="https://formsubmit.co/joao.paulorcsilva@gmail.com" method="POST" class="space-y-6">
+                    <form id="contactForm" action="https://formsubmit.co/joao.paulorcsilva@gmail.com" method="POST" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="nome" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Nome</label>
@@ -1554,6 +1554,15 @@
                 mostrarMensagem('erro', 'Erro ao enviar mensagem. Tente novamente.');
             });
         }
+        
+        // Intercepta o envio do formulário FormSubmit
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            // Permite o envio normal do FormSubmit
+            setTimeout(function() {
+                // Redireciona após 2 segundos para dar tempo do FormSubmit processar
+                window.location.href = 'https://portfolio-pied-mu-88.vercel.app/sucesso.html';
+            }, 2000);
+        });
      </script>
   </body>
 </html>
