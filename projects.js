@@ -36,13 +36,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const completedProjects = document.getElementById('completed-projects');
         const inProgressProjects = document.getElementById('in-progress-projects');
         
+        // Verificar se os elementos existem antes de continuar
+        if (!totalProjects || !completedProjects || !inProgressProjects) {
+            return;
+        }
+        
         let total = 0;
         let completed = 0;
         let inProgress = 0;
         
         projectCards.forEach(card => {
             const category = card.getAttribute('data-category');
-            const status = card.querySelector('.status-badge').textContent.trim();
+            const statusBadge = card.querySelector('.status-badge');
+            
+            if (!statusBadge) return;
+            
+            const status = statusBadge.textContent.trim();
             
             if (filter === 'all' || category.includes(filter)) {
                 total++;
@@ -62,6 +71,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Função para animar contadores
     function animateCounter(element, target) {
+        if (!element) return;
+        
         const start = parseInt(element.textContent) || 0;
         const duration = 500;
         const startTime = performance.now();
@@ -81,8 +92,11 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(updateCounter);
     }
 
-    // Inicializar estatísticas
-    updateProjectStats('all');
+    // Inicializar estatísticas apenas se os elementos existirem
+    const statsElements = document.getElementById('total-projects');
+    if (statsElements) {
+        updateProjectStats('all');
+    }
 
     // Animação de entrada para os cards
     const observerOptions = {

@@ -56,35 +56,45 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ========== Menu Mobile ==========
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+    // Suporte para ambos os IDs (antigo e novo)
+    const menuBtn = document.getElementById('menu-btn') || document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobile-menu') || document.getElementById('mobileMenu');
     
     if (menuBtn && mobileMenu) {
         menuBtn.addEventListener('click', function() {
             // Alternar estado do menu
             this.classList.toggle('active');
-            mobileMenu.classList.toggle('open');
             
-            // Animar itens do menu
-            const menuItems = document.querySelectorAll('.menu-item');
-            if (mobileMenu.classList.contains('open')) {
-                menuItems.forEach((item, index) => {
-                    item.style.transitionDelay = `${index * 0.1}s`;
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateX(0)';
-                });
-            } else {
-                menuItems.forEach(item => {
-                    item.style.transitionDelay = '0s';
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateX(-16px)';
-                });
+            // Para o menu com classe 'open' (formacao.html, index.php)
+            if (mobileMenu.classList.contains('mobile-menu')) {
+                mobileMenu.classList.toggle('open');
+                
+                // Animar itens do menu
+                const menuItems = document.querySelectorAll('.menu-item');
+                if (mobileMenu.classList.contains('open')) {
+                    menuItems.forEach((item, index) => {
+                        item.style.transitionDelay = `${index * 0.1}s`;
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateX(0)';
+                    });
+                } else {
+                    menuItems.forEach(item => {
+                        item.style.transitionDelay = '0s';
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateX(-16px)';
+                    });
+                }
+            } 
+            // Para o menu com classe 'hidden' (index.html, projetos.html)
+            else {
+                mobileMenu.classList.toggle('hidden');
             }
         });
     }
 
     // ========== Dark Mode Toggle ==========
-    const themeToggle = document.getElementById('theme-toggle');
+    // Suporte para ambos os IDs (antigo e novo)
+    const themeToggle = document.getElementById('theme-toggle') || document.getElementById('darkModeToggle');
     const themeToggleMobile = document.getElementById('theme-toggle-mobile');
     const themeIcon = document.getElementById('theme-icon');
     const themeIconMobile = document.getElementById('theme-icon-mobile');

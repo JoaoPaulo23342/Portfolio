@@ -62,86 +62,113 @@
         <i class="fas fa-arrow-up text-xl"></i>
     </button>
 
-    <header class="fixed w-full top-0 z-40 transition-all duration-300" id="navbar">
-        <nav class="bg-white/90 backdrop-blur-md shadow-md dark:bg-gray-900/90 transition-all duration-300">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-20">
-                    <!-- Logo -->
-                    <div class="flex-shrink-0 flex items-center" id="casa">
-                        <a href="index.html" class="text-primary-600 dark:text-primary-400 text-lg font-bold flex items-center">
-                            <img src="assets/icons/Logotipo_empresa_de_programação_sistemas_e_tecnologia-removebg-preview.png" alt="Logo" class="h-12 mr-2">
-                            <span class="hidden sm:block">João Paulo</span>
+    <header class="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="p-2">
+                        <img src="assets/icons/Logotipo_empresa_de_programação_sistemas_e_tecnologia-removebg-preview.png" 
+                             alt="João Paulo - Dev Fullstack" 
+                             class="h-8">
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-gray-900 dark:text-white">João Paulo</h1>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Desenvolvedor Fullstack</p>
+                    </div>
+                </div>
+
+                <!-- Navegação Desktop -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium">
+                        Home
+                    </a>
+                    <a href="index.html#sobre" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium">
+                        Sobre
+                    </a>
+                    <a href="projetos.html" class="text-primary-600 dark:text-primary-400 font-semibold border-b-2 border-primary-600 dark:border-primary-400 pb-1">
+                        Projetos
+                    </a>
+                    <a href="formacao.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium">
+                        Formação
+                    </a>
+                    <a href="index.html#contato" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium">
+                        Contato
+                    </a>
+                </nav>
+
+                <!-- Botões de ação -->
+                <div class="flex items-center space-x-4">
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+
+                    <!-- Redes Sociais -->
+                    <div class="hidden md:flex items-center space-x-3">
+                        <a href="https://github.com/JoaoPaulo23342" target="_blank" rel="noopener noreferrer"
+                           class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:text-white transition-all duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/joaopauloresende/" target="_blank" rel="noopener noreferrer"
+                           class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://wa.me/5561998278558" target="_blank" rel="noopener noreferrer"
+                           class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-green-600 hover:text-white transition-all duration-300">
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
-                    
-                    <!-- Menu Desktop -->
-                    <div class="hidden md:flex space-x-1 items-center">
-                        <a href="index.html" class="nav-link text-gray-800 hover:text-primary-600 px-4 py-2 rounded-full transition duration-300 dark:text-gray-200 dark:hover:text-primary-400 font-medium">Home</a>
-                        <a href="index.html#sobre" class="nav-link text-gray-800 hover:text-primary-600 px-4 py-2 rounded-full transition duration-300 dark:text-gray-200 dark:hover:text-primary-400 font-medium">Sobre</a>
-                        <a href="projetos.html" class="nav-link text-primary-600 dark:text-primary-400 px-4 py-2 rounded-full transition duration-300 font-medium bg-primary-50 dark:bg-primary-900/30">Projetos</a>
-                        <a href="formacao.php" class="nav-link text-gray-800 hover:text-primary-600 px-4 py-2 rounded-full transition duration-300 dark:text-gray-200 dark:hover:text-primary-400 font-medium">Formação</a>
-                        <a href="index.html#contato" class="nav-link text-gray-800 hover:text-primary-600 px-4 py-2 rounded-full transition duration-300 dark:text-gray-200 dark:hover:text-primary-400 font-medium">Contato</a>
-                        
-                        <div class="flex space-x-2 ml-4">
-                            <a href="https://www.linkedin.com/in/joaopauloresende/" target="_blank" class="social-icon-btn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/joaopaulo-dev" target="_blank" class="social-icon-btn">
-                                <i class="fab fa-github"></i>
-                            </a>
+
+                    <!-- Menu Mobile -->
+                    <button id="mobileMenuToggle" class="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 relative w-10 h-10 flex items-center justify-center">
+                        <div class="hamburger-lines">
+                            <span class="hamburger-line block w-5 h-0.5 bg-current transition-all duration-300 ease-in-out"></span>
+                            <span class="hamburger-line block w-5 h-0.5 bg-current transition-all duration-300 ease-in-out mt-1"></span>
+                            <span class="hamburger-line block w-5 h-0.5 bg-current transition-all duration-300 ease-in-out mt-1"></span>
                         </div>
-                        
-                        <!-- Botão Dark Mode -->
-                        <button id="theme-toggle" type="button" class="ml-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition duration-300 focus:outline-none">
-                            <i id="theme-icon" class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
-                        </button>
-                    </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu Mobile -->
+            <div id="mobileMenu" class="md:hidden hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+                <div class="px-6 py-4 space-y-4">
+                    <a href="index.html" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium">
+                        Home
+                    </a>
+                    <a href="index.html#sobre" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium">
+                        Sobre
+                    </a>
+                    <a href="projetos.html" class="block text-primary-600 dark:text-primary-400 font-semibold">
+                        Projetos
+                    </a>
+                    <a href="formacao.html" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium">
+                        Formação
+                    </a>
+                    <a href="index.html#contato" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium">
+                        Contato
+                    </a>
                     
-                    <!-- Botão Mobile -->
-                    <div class="md:hidden flex items-center space-x-3">
-                        <!-- Botão Dark Mode Mobile -->
-                        <button id="theme-toggle-mobile" type="button" class="p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition duration-300 focus:outline-none">
-                            <i id="theme-icon-mobile" class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
-                        </button>
-                        
-                        <button class="relative w-8 h-8 flex flex-col justify-center items-center gap-1 focus:outline-none p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300" id="menu-btn" aria-label="Menu">
-                            <div class="hamburger-line-1"></div>
-                            <div class="hamburger-line-2"></div>
-                            <div class="hamburger-line-3"></div>
-                        </button>
+                    <!-- Redes Sociais Mobile -->
+                    <div class="flex items-center space-x-3 pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <a href="https://github.com/JoaoPaulo23342" target="_blank" rel="noopener noreferrer"
+                           class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:text-white transition-all duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/joaopauloresende/" target="_blank" rel="noopener noreferrer"
+                           class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://wa.me/5561998278558" target="_blank" rel="noopener noreferrer"
+                           class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-green-600 hover:text-white transition-all duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-            
-            <!-- Menu Mobile -->
-            <div class="mobile-menu md:hidden bg-white/95 backdrop-blur-md dark:bg-gray-900/95 shadow-lg rounded-b-2xl" id="mobile-menu">
-                <ul class="px-4 py-6 space-y-3">
-                    <li class="menu-item">
-                        <a href="index.html" class="mobile-nav-link">Home</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="index.html#sobre" class="mobile-nav-link">Sobre</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="projetos.html" class="mobile-nav-link">Projetos</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="formacao.php" class="mobile-nav-link">Formação</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="index.html#contato" class="mobile-nav-link">Contato</a>
-                    </li>
-                    <li class="menu-item flex space-x-4 justify-center py-3">
-                        <a href="https://www.linkedin.com/in/joaopauloresende/" target="_blank" class="social-icon-btn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/joaopaulo-dev" target="_blank" class="social-icon-btn">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        </div>
     </header>
 
     <!-- Main Content -->
@@ -693,6 +720,9 @@
     
     <!-- Script principal -->
     <script src="index.js"></script>
+    
+    <!-- Script do menu mobile -->
+    <script src="menu-animation.js"></script>
     
     <!-- Script específico para projetos -->
     <script src="projects.js"></script>

@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formação Acadêmica - João Paulo Dev Fullstack</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="style.css">
+    <title>Formação Acadêmica - João Paulo</title>
     
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -30,438 +28,605 @@
                     },
                     animation: {
                         'gradient': 'gradient 8s ease infinite',
-                        'float': 'float 3s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'spin-slow': 'spin 3s linear infinite',
                     },
                     keyframes: {
                         gradient: {
                             '0%, 100%': {
-                                'background-position': '0% 50%'
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
                             },
                             '50%': {
-                                'background-position': '100% 50%'
-                            },
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
                         },
                         float: {
-                            '0%, 100%': {
-                                transform: 'translateY(0)',
-                            },
-                            '50%': {
-                                transform: 'translateY(-10px)',
-                            },
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
                         }
-                    },
+                    }
                 }
             }
         }
     </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="formation.css">
 </head>
-<body class="bg-gray-50 flex flex-col min-h-screen dark:bg-gray-900 font-sans">
-    <!-- Animação de Bolhas -->
-    <div class="bubbles-container">
-        <div class="bubble"></div>
-        <div class="bubble bubble-medium"></div>
-        <div class="bubble bubble-large"></div>
-        <div class="bubble"></div>
-        <div class="bubble bubble-medium"></div>
-        <div class="bubble bubble-large"></div>
-        <div class="bubble"></div>
-        <div class="bubble bubble-medium"></div>
-        <div class="bubble bubble-large"></div>
-        <div class="bubble"></div>
-        <div class="bubble bubble-medium"></div>
-        <div class="bubble bubble-large"></div>
-        <div class="bubble"></div>
-        <div class="bubble bubble-medium"></div>
-        <div class="bubble bubble-large"></div>
-    </div>
 
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
     <!-- Botão Voltar ao Topo -->
-    <button id="backToTop" class="fixed bottom-8 right-8 z-50 p-3 bg-primary-600 text-white shadow-lg hover:bg-primary-700 transition-all duration-300 opacity-0 invisible dark:bg-primary-500 dark:hover:bg-primary-600 rounded-full">
-        <i class="fas fa-arrow-up text-xl"></i>
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-primary-600 hover:bg-primary-700 text-white p-3 rounded-full shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50 group">
+        <i class="fas fa-arrow-up group-hover:animate-bounce"></i>
     </button>
 
-    <header class="fixed w-full top-0 z-40 transition-all duration-300" id="navbar">
-        <nav class="bg-white/90 backdrop-blur-md shadow-md dark:bg-gray-900/90 transition-all duration-300">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-20">
-                    <!-- Logo -->
-                    <div class="flex-shrink-0 flex items-center" id="casa">
-                        <a href="index.html" class="text-primary-600 dark:text-primary-400 text-lg font-bold flex items-center">
-                            <img src="assets/icons/Logotipo_empresa_de_programação_sistemas_e_tecnologia-removebg-preview.png" alt="Logo" class="h-12 mr-2">
-                            <span class="hidden sm:block">João Paulo</span>
+    <!-- Header/Navbar -->
+    <header class="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="p-2">
+                        <img src="assets/icons/Logotipo_empresa_de_programação_sistemas_e_tecnologia-removebg-preview.png" 
+                             alt="João Paulo - Dev Fullstack" 
+                             class="h-8">
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-gray-900 dark:text-white">João Paulo</h1>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Desenvolvedor Fullstack</p>
+                    </div>
+                </div>
+
+                <!-- Navegação Desktop -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium">
+                        Home
+                    </a>
+                    
+                    <a href="projetos.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium">
+                        Projetos
+                    </a>
+                    <a href="formacao.html" class="text-primary-600 dark:text-primary-400 font-semibold border-b-2 border-primary-600 dark:border-primary-400 pb-1">
+                        Formação
+                    </a>
+                    <a href="index.html#contato" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium">
+                        Contato
+                    </a>
+                </nav>
+
+                <!-- Botões de ação -->
+                <div class="flex items-center space-x-4">
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+
+                    <!-- Redes Sociais -->
+                    <div class="hidden md:flex items-center space-x-3">
+                        <a href="https://github.com/JoaoPaulo23342" target="_blank" rel="noopener noreferrer"
+                           class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:text-white transition-all duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/joaopauloresende/" target="_blank" rel="noopener noreferrer"
+                           class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://wa.me/5561998278558" target="_blank" rel="noopener noreferrer"
+                           class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-green-600 hover:text-white transition-all duration-300">
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
-                    
-                    <!-- Menu Desktop -->
-                    <div class="hidden md:flex space-x-1 items-center">
-                        <a href="index.html" class="nav-link text-gray-800 hover:text-primary-600 px-4 py-2 rounded-full transition duration-300 dark:text-gray-200 dark:hover:text-primary-400 font-medium">Home</a>
-                        <a href="index.html#sobre" class="nav-link text-gray-800 hover:text-primary-600 px-4 py-2 rounded-full transition duration-300 dark:text-gray-200 dark:hover:text-primary-400 font-medium">Sobre</a>
-                        <a href="projetos.html" class="nav-link text-gray-800 hover:text-primary-600 px-4 py-2 rounded-full transition duration-300 dark:text-gray-200 dark:hover:text-primary-400 font-medium">Projetos</a>
-                        <a href="formacao.html" class="nav-link text-primary-600 dark:text-primary-400 px-4 py-2 rounded-full transition duration-300 font-medium bg-primary-50 dark:bg-primary-900/30">Formação</a>
-                        <a href="index.html#contato" class="nav-link text-gray-800 hover:text-primary-600 px-4 py-2 rounded-full transition duration-300 dark:text-gray-200 dark:hover:text-primary-400 font-medium">Contato</a>
-                        
-                        <div class="flex space-x-2 ml-4">
-                            <a href="https://www.linkedin.com/in/joaopauloresende/" target="_blank" class="social-icon-btn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/joaopaulo-dev" target="_blank" class="social-icon-btn">
-                                <i class="fab fa-github"></i>
-                            </a>
+
+                    <!-- Menu Mobile -->
+                    <button id="mobileMenuToggle" class="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 relative w-10 h-10 flex items-center justify-center">
+                        <div class="hamburger-lines">
+                            <span class="hamburger-line block w-5 h-0.5 bg-current transition-all duration-300 ease-in-out"></span>
+                            <span class="hamburger-line block w-5 h-0.5 bg-current transition-all duration-300 ease-in-out mt-1"></span>
+                            <span class="hamburger-line block w-5 h-0.5 bg-current transition-all duration-300 ease-in-out mt-1"></span>
                         </div>
-                        
-                        <!-- Botão Dark Mode -->
-                        <button id="theme-toggle" type="button" class="ml-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition duration-300 focus:outline-none">
-                            <i id="theme-icon" class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
-                        </button>
-                    </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu Mobile -->
+            <div id="mobileMenu" class="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+                <div class="px-6 py-4 space-y-4">
+                    <a href="index.html" class="menu-item block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium">
+                        Home
+                    </a>
+                    <a href="index.html#sobre" class="menu-item block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium">
+                        Sobre
+                    </a>
+                    <a href="projetos.html" class="menu-item block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium">
+                        Projetos
+                    </a>
+                    <a href="formacao.html" class="menu-item block text-primary-600 dark:text-primary-400 font-semibold">
+                        Formação
+                    </a>
+                    <a href="index.html#contato" class="menu-item block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium">
+                        Contato
+                    </a>
                     
-                    <!-- Botão Mobile -->
-                    <div class="md:hidden flex items-center space-x-3">
-                        <!-- Botão Dark Mode Mobile -->
-                        <button id="theme-toggle-mobile" type="button" class="p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition duration-300 focus:outline-none">
-                            <i id="theme-icon-mobile" class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
-                        </button>
-                        
-                        <button class="relative w-8 h-8 flex flex-col justify-center items-center gap-1 focus:outline-none p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300" id="menu-btn" aria-label="Menu">
-                            <div class="hamburger-line-1"></div>
-                            <div class="hamburger-line-2"></div>
-                            <div class="hamburger-line-3"></div>
-                        </button>
+                    <!-- Redes Sociais Mobile -->
+                    <div class="flex items-center space-x-3 pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <a href="https://github.com/JoaoPaulo23342" target="_blank" rel="noopener noreferrer"
+                           class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:text-white transition-all duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/joaopauloresende/" target="_blank" rel="noopener noreferrer"
+                           class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://wa.me/5561998278558" target="_blank" rel="noopener noreferrer"
+                           class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-green-600 hover:text-white transition-all duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-            
-            <!-- Menu Mobile -->
-            <div class="mobile-menu md:hidden bg-white/95 backdrop-blur-md dark:bg-gray-900/95 shadow-lg rounded-b-2xl" id="mobile-menu">
-                <ul class="px-4 py-6 space-y-3">
-                    <li class="menu-item">
-                        <a href="index.html" class="mobile-nav-link">Home</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="index.html#sobre" class="mobile-nav-link">Sobre</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="projetos.html" class="mobile-nav-link">Projetos</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="formacao.html" class="mobile-nav-link">Formação</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="index.html#contato" class="mobile-nav-link">Contato</a>
-                    </li>
-                    <li class="menu-item flex space-x-4 justify-center py-3">
-                        <a href="https://www.linkedin.com/in/joaopauloresende/" target="_blank" class="social-icon-btn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/joaopaulo-dev" target="_blank" class="social-icon-btn">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="flex-grow pt-20">
-        <!-- Hero Section -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 opacity-70"></div>
-            <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
-                <div class="absolute top-20 left-1/4 w-72 h-72 rounded-full bg-primary-400 blur-3xl animate-pulse-slow"></div>
-                <div class="absolute bottom-20 right-1/4 w-96 h-96 rounded-full bg-blue-400 blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
+    <!-- Conteúdo Principal -->
+    <main class="min-h-screen">
+        <!-- Seção Hero -->
+        <section class="relative bg-gradient-to-br from-primary-600 via-blue-600 to-purple-700 text-white py-20 overflow-hidden">
+            <!-- Elementos decorativos de fundo -->
+            <div class="absolute inset-0 opacity-20">
+                <div class="absolute top-10 left-10 w-20 h-20 bg-white rounded-full animate-float"></div>
+                <div class="absolute top-32 right-20 w-16 h-16 bg-white rounded-full animate-float" style="animation-delay: 1s;"></div>
+                <div class="absolute bottom-20 left-1/4 w-12 h-12 bg-white rounded-full animate-float" style="animation-delay: 2s;"></div>
+                <div class="absolute bottom-32 right-1/3 w-24 h-24 bg-white rounded-full animate-float" style="animation-delay: 0.5s;"></div>
             </div>
-            
-            <div class="max-w-7xl mx-auto relative z-10">
-                <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
-                    <div class="inline-block px-6 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full text-sm font-medium mb-6">
-                        <i class="fas fa-graduation-cap mr-2"></i>
-                        Minha Jornada Acadêmica
+
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+                <div class="text-center" data-aos="fade-up">
+                    <div class="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-8">
+                        <i class="fas fa-graduation-cap text-2xl mr-3"></i>
+                        <span class="text-lg font-medium">Formação Acadêmica</span>
                     </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-                        Formação <span class="text-primary-600 dark:text-primary-400">Acadêmica</span>
+                    
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                        Minha Jornada de
+                        <span class="block">Aprendizado</span>
                     </h1>
-                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                        Conheça minha trajetória educacional e as competências que adquiri ao longo dos anos, 
-                        sempre em busca do conhecimento e da excelência profissional.
+                    
+                    <p class="text-lg sm:text-xl md:text-2xl text-blue-100 mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
+                        Conheça minha trajetória educacional, certificações e habilidades desenvolvidas ao longo da minha carreira como desenvolvedor.
                     </p>
+
+                    <!-- Estatísticas -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-12 md:mt-16">
+                        <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20" data-aos="fade-up" data-aos-delay="100">
+                            <div class="text-2xl md:text-4xl font-bold mb-2" data-counter="3">0</div>
+                            <div class="text-blue-200 text-sm md:text-base">Anos de Estudo</div>
+                        </div>
+                        <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-2xl md:text-4xl font-bold mb-2" data-counter="15">0</div>
+                            <div class="text-blue-200 text-sm md:text-base">Certificações</div>
+                        </div>
+                        <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20" data-aos="fade-up" data-aos-delay="300">
+                            <div class="text-2xl md:text-4xl font-bold mb-2" data-counter="20">0</div>
+                            <div class="text-blue-200 text-sm md:text-base">Tecnologias</div>
+                        </div>
+                        <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20" data-aos="fade-up" data-aos-delay="400">
+                            <div class="text-2xl md:text-4xl font-bold mb-2" data-counter="50">0</div>
+                            <div class="text-blue-200 text-sm md:text-base">Projetos</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Timeline de Formação -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-6xl mx-auto">
+        <!-- Seção de Formação Acadêmica -->
+        <section class="py-20 bg-white dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                        Formação Acadêmica
+                    </h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                        Minha trajetória educacional e os conhecimentos adquiridos ao longo dos anos.
+                    </p>
+                </div>
+
+                <!-- Timeline de Formação -->
                 <div class="relative">
-                    <!-- Linha vertical da timeline -->
-                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary-400 to-blue-400 rounded-full hidden md:block"></div>
-                    
-                    <!-- Item 1 - Ensino Superior -->
-                    <div class="relative mb-16" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-                        <!-- Ícone para mobile (aparece apenas no mobile) -->
-                        <div class="flex justify-center mb-6 md:hidden">
-                            <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg mobile-timeline-icon">
-                                <i class="fas fa-graduation-cap text-white text-2xl"></i>
-                            </div>
-                        </div>
-                        
-                        <div class="flex flex-col md:flex-row items-center">
-                            <!-- Conteúdo (lado esquerdo no desktop) -->
-                            <div class="md:w-5/12 md:pr-8 mb-8 md:mb-0">
-                                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                    <div class="flex items-center mb-6">
-                                        <div class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-xl mr-4">
-                                            <i class="fas fa-university text-2xl text-primary-600 dark:text-primary-400"></i>
-                                        </div>
-                                        <div>
-                                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Análise e Desenvolvimento de Sistemas</h3>
-                                            <p class="text-primary-600 dark:text-primary-400 font-medium">Tecnólogo</p>
-                                        </div>
-                                    </div>
-                                    <div class="space-y-4">
-                                        <div class="flex items-center text-gray-600 dark:text-gray-400">
-                                            <i class="fas fa-calendar-alt mr-3 text-primary-500"></i>
-                                            <span>2023 - 2025 (Cursando)</span>
-                                        </div>
-                                        <div class="flex items-center text-gray-600 dark:text-gray-400">
-                                            <i class="fas fa-map-marker-alt mr-3 text-primary-500"></i>
-                                            <span>Brasília, DF</span>
-                                        </div>
-                                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                                            Formação focada no desenvolvimento de sistemas, análise de requisitos, 
-                                            programação e gestão de projetos de software.
-                                        </p>
-                                        <div class="flex flex-wrap gap-2 mt-4">
-                                            <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm">Desenvolvimento Web</span>
-                                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">Banco de Dados</span>
-                                            <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm">Análise de Sistemas</span>
-                                            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm">Gestão de Projetos</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Ícone central (oculto no mobile) -->
-                            <div class="md:w-2/12 justify-center mb-8 md:mb-0 hidden md:flex">
-                                <div class="w-16 h-16 bg-primary-600 dark:bg-primary-500 rounded-full flex items-center justify-center shadow-lg">
-                                    <i class="fas fa-graduation-cap text-white text-xl"></i>
-                                </div>
-                            </div>
-                            
-                            <!-- Espaço vazio (lado direito) -->
-                            <div class="md:w-5/12"></div>
-                        </div>
-                    </div>
+                    <!-- Linha da Timeline - Desktop -->
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary-500 to-blue-500 rounded-full"></div>
 
-                    <!-- Item 2 - Curso Técnico -->
-                    <div class="relative mb-16" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                        <div class="flex flex-col md:flex-row items-center">
-                            <!-- Espaço vazio (lado esquerdo) -->
-                            <div class="md:w-5/12"></div>
-                            
-                            <!-- Ícone central -->
-                            <div class="md:w-2/12 flex justify-center mb-8 md:mb-0">
-                                <div class="w-16 h-16 bg-green-600 dark:bg-green-500 rounded-full flex items-center justify-center shadow-lg">
-                                    <i class="fas fa-school text-white text-xl"></i>
+                    <!-- Ensino Superior -->
+                    <div class="relative flex flex-col md:flex-row md:items-center mb-12 md:mb-16" data-aos="fade-right">
+                        <!-- Mobile Layout -->
+                        <div class="md:hidden flex items-start relative">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 w-full">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-primary-100 dark:bg-primary-900 p-3 rounded-full mr-4">
+                                        <i class="fas fa-university text-primary-600 dark:text-primary-400 text-xl"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Ensino Superior</h3>
+                                </div>
+                                <h4 class="text-lg font-semibold text-primary-600 dark:text-primary-400 mb-2">
+                                    Análise e Desenvolvimento de Sistemas
+                                </h4>
+                                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                    Faculdade Anhanguera - Brasília/DF
+                                </p>
+                                <div class="flex items-center text-sm text-gray-500 dark:text-gray-500 mb-4">
+                                    <i class="fas fa-calendar-alt mr-2"></i>
+                                    <span>2022 - 2024</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Programação</span>
+                                    <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">Banco de Dados</span>
+                                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">Engenharia de Software</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Desktop Layout -->
+                        <div class="hidden md:flex md:items-center w-full">
+                            <div class="w-1/2 pr-8 text-right">
+                                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                                    <div class="flex items-center justify-end mb-4">
+                                        <div class="bg-primary-100 dark:bg-primary-900 p-3 rounded-full mr-4">
+                                            <i class="fas fa-university text-primary-600 dark:text-primary-400 text-2xl"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Ensino Superior</h3>
+                                    </div>
+                                    <h4 class="text-xl font-semibold text-primary-600 dark:text-primary-400 mb-2">
+                                        Análise e Desenvolvimento de Sistemas
+                                    </h4>
+                                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                        Faculdade Anhanguera - Brasília/DF
+                                    </p>
+                                    <div class="flex items-center justify-end text-sm text-gray-500 dark:text-gray-500 mb-4">
+                                        <i class="fas fa-calendar-alt mr-2"></i>
+                                        <span>2022 - 2024</span>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 justify-end">
+                                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Programação</span>
+                                        <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">Banco de Dados</span>
+                                        <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">Engenharia de Software</span>
+                                    </div>
                                 </div>
                             </div>
                             
-                            <!-- Conteúdo (lado direito no desktop) -->
-                            <div class="md:w-5/12 md:pl-8">
-                                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                    <div class="flex items-center mb-6">
-                                        <div class="bg-green-100 dark:bg-green-900/30 p-3 rounded-xl mr-4">
-                                            <i class="fas fa-school text-2xl text-green-600 dark:text-green-400"></i>
-                                        </div>
-                                        <div>
-                                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Ensino Médio</h3>
-                                            <p class="text-green-600 dark:text-green-400 font-medium">Colégio Estadual de Educação do Campo Joaquim Cavalcante de Lima</p>
-                                        </div>
-                                    </div>
-                                    <div class="space-y-4">
-                                        <div class="flex items-center text-gray-600 dark:text-gray-400">
-                                            <i class="fas fa-calendar-alt mr-3 text-green-500"></i>
-                                            <span>2020 - 2022</span>
-                                        </div>
-                                        <div class="flex items-center text-gray-600 dark:text-gray-400">
-                                            <i class="fas fa-map-marker-alt mr-3 text-green-500"></i>
-                                            <span>Educação do Campo</span>
-                                        </div>
-                                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                                            Formação básica com foco em ciências exatas e desenvolvimento do pensamento lógico, 
-                                            preparando para o ensino superior.
-                                        </p>
-                                        <div class="flex flex-wrap gap-2 mt-4">
-                                            <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm">Matemática</span>
-                                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">Física</span>
-                                            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm">Lógica</span>
-                                            <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full text-sm">Ciências</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- Ponto da Timeline Desktop -->
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-primary-600 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
+                            
+                            <div class="w-1/2 pl-8"></div>
                         </div>
                     </div>
 
+                    <!-- Ensino Médio -->
+                    <div class="relative flex flex-col md:flex-row md:items-center mb-12 md:mb-16" data-aos="fade-left">
+                        <!-- Mobile Layout -->
+                        <div class="md:hidden flex items-start relative">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 w-full">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
+                                        <i class="fas fa-school text-blue-600 dark:text-blue-400 text-xl"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Ensino Médio</h3>
+                                </div>
+                                <h4 class="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">
+                                    Ensino Médio Completo
+                                </h4>
+                                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                    Centro de Ensino Médio 03 - Brasília/DF
+                                </p>
+                                <div class="flex items-center text-sm text-gray-500 dark:text-gray-500 mb-4">
+                                    <i class="fas fa-calendar-alt mr-2"></i>
+                                    <span>2018 - 2020</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full text-sm">Matemática</span>
+                                    <span class="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full text-sm">Física</span>
+                                    <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-full text-sm">Lógica</span>
+                                </div>
+                            </div>
+                        </div>
 
+                        <!-- Desktop Layout -->
+                        <div class="hidden md:flex md:items-center w-full">
+                            <div class="w-1/2 pr-8"></div>
+                            
+                            <!-- Ponto da Timeline Desktop -->
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-600 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
+                            
+                            <div class="w-1/2 pl-8">
+                                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                                    <div class="flex items-center mb-4">
+                                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
+                                            <i class="fas fa-school text-blue-600 dark:text-blue-400 text-2xl"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Ensino Médio</h3>
+                                    </div>
+                                    <h4 class="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-2">
+                                        Ensino Médio Completo
+                                    </h4>
+                                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                        Centro de Ensino Médio 03 - Brasília/DF
+                                    </p>
+                                    <div class="flex items-center text-sm text-gray-500 dark:text-gray-500 mb-4">
+                                        <i class="fas fa-calendar-alt mr-2"></i>
+                                        <span>2018 - 2020</span>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full text-sm">Matemática</span>
+                                        <span class="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full text-sm">Física</span>
+                                        <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-full text-sm">Lógica</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Seção de Certificações -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                        Certificações e <span class="text-primary-600 dark:text-primary-400">Cursos</span>
+        <section class="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
+            <!-- Elementos decorativos de fundo -->
+            <div class="absolute inset-0 opacity-30">
+                <div class="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+                <div class="absolute top-40 right-10 w-72 h-72 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 2s;"></div>
+                <div class="absolute bottom-20 left-1/2 w-72 h-72 bg-gradient-to-r from-yellow-400 to-red-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 4s;"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl mb-6">
+                        <i class="fas fa-certificate text-white text-2xl"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-6">
+                        Certificações & Cursos
                     </h2>
-                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                        Certificações e cursos complementares que ampliam meu conhecimento técnico
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                        Certificações e cursos especializados que complementam minha formação acadêmica e mantêm minhas habilidades sempre atualizadas.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Certificação 1 -->
-                    <div class="certification-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-                        <div class="certification-header">
-                            <div class="certification-icon bg-primary-100 dark:bg-primary-900/30">
-                                <i class="fab fa-js-square text-primary-600 dark:text-primary-400"></i>
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 auto-rows-fr">
+                    <!-- Certificação JavaScript -->
+                    <div class="group relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20 dark:border-gray-700/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <!-- Gradiente de fundo no hover -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div class="relative z-10 text-center">
+                            <!-- Ícone centralizado -->
+                            <div class="flex justify-center mb-6">
+                                <div class="relative">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                        <i class="fab fa-js-square text-white text-3xl"></i>
+                                    </div>
+                                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="certification-badge">
-                                <span class="text-xs font-medium text-primary-600 dark:text-primary-400">Certificado</span>
-                            </div>
-                        </div>
-                        <div class="certification-content">
-                            <h3 class="certification-title">JavaScript Moderno</h3>
-                            <p class="certification-provider">Udemy</p>
-                            <p class="certification-description">
-                                Curso completo de JavaScript ES6+, incluindo conceitos avançados, async/await, e frameworks modernos.
+
+                            <!-- Título e instituição centralizados -->
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors duration-300 mb-2">JavaScript Moderno</h3>
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 flex items-center justify-center mb-4">
+                                <i class="fas fa-graduation-cap mr-2"></i>
+                                Udemy
                             </p>
-                            <div class="certification-skills">
-                                <span class="skill-tag">ES6+</span>
-                                <span class="skill-tag">Async/Await</span>
-                                <span class="skill-tag">DOM</span>
+
+                            <!-- Descrição centralizada -->
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                                Curso completo de JavaScript ES6+, incluindo conceitos avançados e práticas modernas de desenvolvimento.
+                            </p>
+
+                            <!-- Tags de habilidades centralizadas -->
+                            <div class="flex flex-wrap justify-center gap-2">
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/50 dark:to-orange-900/50 text-yellow-800 dark:text-yellow-200 rounded-full text-sm font-medium border border-yellow-200 dark:border-yellow-700">ES6+</span>
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700">Async/Await</span>
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/50 dark:to-emerald-900/50 text-green-800 dark:text-green-200 rounded-full text-sm font-medium border border-green-200 dark:border-green-700">DOM</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Certificação 2 -->
-                    <div class="certification-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                        <div class="certification-header">
-                            <div class="certification-icon bg-blue-100 dark:bg-blue-900/30">
-                                <i class="fab fa-react text-blue-600 dark:text-blue-400"></i>
+                    <!-- Certificação React -->
+                    <div class="group relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20 dark:border-gray-700/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div class="relative z-10 text-center">
+                            <!-- Ícone centralizado -->
+                            <div class="flex justify-center mb-6">
+                                <div class="relative">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                        <i class="fab fa-react text-white text-3xl"></i>
+                                    </div>
+                                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="certification-badge">
-                                <span class="text-xs font-medium text-blue-600 dark:text-blue-400">Certificado</span>
-                            </div>
-                        </div>
-                        <div class="certification-content">
-                            <h3 class="certification-title">React.js Completo</h3>
-                            <p class="certification-provider">Rocketseat</p>
-                            <p class="certification-description">
-                                Desenvolvimento de aplicações modernas com React, incluindo hooks, context API e gerenciamento de estado.
+
+                            <!-- Título e instituição centralizados -->
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 mb-2">React.js</h3>
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 flex items-center justify-center mb-4">
+                                <i class="fas fa-graduation-cap mr-2"></i>
+                                Udemy
                             </p>
-                            <div class="certification-skills">
-                                <span class="skill-tag">React Hooks</span>
-                                <span class="skill-tag">Context API</span>
-                                <span class="skill-tag">Redux</span>
+
+                            <!-- Descrição centralizada -->
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                                Desenvolvimento de aplicações web modernas com React, Hooks e Context API para interfaces dinâmicas.
+                            </p>
+
+                            <!-- Tags de habilidades centralizadas -->
+                            <div class="flex flex-wrap justify-center gap-2">
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700">Hooks</span>
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/50 dark:to-pink-900/50 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium border border-purple-200 dark:border-purple-700">Context API</span>
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/50 dark:to-emerald-900/50 text-green-800 dark:text-green-200 rounded-full text-sm font-medium border border-green-200 dark:border-green-700">Redux</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Certificação 3 -->
-                    <div class="certification-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-                        <div class="certification-header">
-                            <div class="certification-icon bg-green-100 dark:bg-green-900/30">
-                                <i class="fab fa-node-js text-green-600 dark:text-green-400"></i>
+                    <!-- Certificação Node.js -->
+                    <div class="group relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20 dark:border-gray-700/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-400/10 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div class="relative z-10 text-center">
+                            <!-- Ícone centralizado -->
+                            <div class="flex justify-center mb-6">
+                                <div class="relative">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                        <i class="fab fa-node-js text-white text-3xl"></i>
+                                    </div>
+                                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="certification-badge">
-                                <span class="text-xs font-medium text-green-600 dark:text-green-400">Certificado</span>
-                            </div>
-                        </div>
-                        <div class="certification-content">
-                            <h3 class="certification-title">Node.js & Express</h3>
-                            <p class="certification-provider">Alura</p>
-                            <p class="certification-description">
-                                Desenvolvimento de APIs RESTful com Node.js, Express, autenticação JWT e integração com bancos de dados.
+
+                            <!-- Título e instituição centralizados -->
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300 mb-2">Node.js & Express</h3>
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 flex items-center justify-center mb-4">
+                                <i class="fas fa-graduation-cap mr-2"></i>
+                                Udemy
                             </p>
-                            <div class="certification-skills">
-                                <span class="skill-tag">Express.js</span>
-                                <span class="skill-tag">JWT</span>
-                                <span class="skill-tag">MongoDB</span>
+
+                            <!-- Descrição centralizada -->
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                                Desenvolvimento de APIs RESTful e aplicações backend robustas com Node.js e Express.
+                            </p>
+
+                            <!-- Tags de habilidades centralizadas -->
+                            <div class="flex flex-wrap justify-center gap-2">
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/50 dark:to-emerald-900/50 text-green-800 dark:text-green-200 rounded-full text-sm font-medium border border-green-200 dark:border-green-700">Express</span>
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700">REST API</span>
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/50 dark:to-orange-900/50 text-yellow-800 dark:text-yellow-200 rounded-full text-sm font-medium border border-yellow-200 dark:border-yellow-700">JWT</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Certificação 4 -->
-                    <div class="certification-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-                        <div class="certification-header">
-                            <div class="certification-icon bg-purple-100 dark:bg-purple-900/30">
-                                <i class="fas fa-database text-purple-600 dark:text-purple-400"></i>
+                    <!-- Certificação Banco de Dados -->
+                    <div class="group relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20 dark:border-gray-700/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                        <div class="absolute inset-0 bg-gradient-to-br from-orange-400/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div class="relative z-10 text-center">
+                            <!-- Ícone centralizado -->
+                            <div class="flex justify-center mb-6">
+                                <div class="relative">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                        <i class="fas fa-database text-white text-3xl"></i>
+                                    </div>
+                                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="certification-badge">
-                                <span class="text-xs font-medium text-purple-600 dark:text-purple-400">Certificado</span>
-                            </div>
-                        </div>
-                        <div class="certification-content">
-                            <h3 class="certification-title">Banco de Dados</h3>
-                            <p class="certification-provider">Coursera</p>
-                            <p class="certification-description">
-                                Modelagem de dados, SQL avançado, otimização de consultas e administração de bancos relacionais e NoSQL.
+
+                            <!-- Título e instituição centralizados -->
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors duration-300 mb-2">Banco de Dados</h3>
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 flex items-center justify-center mb-4">
+                                <i class="fas fa-graduation-cap mr-2"></i>
+                                Udemy
                             </p>
-                            <div class="certification-skills">
-                                <span class="skill-tag">SQL</span>
-                                <span class="skill-tag">PostgreSQL</span>
-                                <span class="skill-tag">NoSQL</span>
+
+                            <!-- Descrição centralizada -->
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                                Modelagem e administração de bancos de dados relacionais e não-relacionais para aplicações modernas.
+                            </p>
+
+                            <!-- Tags de habilidades centralizadas -->
+                            <div class="flex flex-wrap justify-center gap-2">
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700">MySQL</span>
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/50 dark:to-emerald-900/50 text-green-800 dark:text-green-200 rounded-full text-sm font-medium border border-green-200 dark:border-green-700">MongoDB</span>
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/50 dark:to-pink-900/50 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium border border-purple-200 dark:border-purple-700">PostgreSQL</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Certificação 5 -->
-                    <div class="certification-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
-                        <div class="certification-header">
-                            <div class="certification-icon bg-orange-100 dark:bg-orange-900/30">
-                                <i class="fab fa-aws text-orange-600 dark:text-orange-400"></i>
+                    <!-- Certificação Full Stack -->
+                    <div class="group relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20 dark:border-gray-700/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden" data-aos="fade-up" data-aos-delay="500">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-400/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div class="relative z-10 text-center">
+                            <!-- Ícone centralizado -->
+                            <div class="flex justify-center mb-6">
+                                <div class="relative">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                        <i class="fab fa-aws text-white text-3xl"></i>
+                                    </div>
+                                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="certification-badge">
-                                <span class="text-xs font-medium text-orange-600 dark:text-orange-400">Em Progresso</span>
-                            </div>
-                        </div>
-                        <div class="certification-content">
-                            <h3 class="certification-title">AWS Cloud Practitioner</h3>
-                            <p class="certification-provider">Amazon Web Services</p>
-                            <p class="certification-description">
-                                Fundamentos de computação em nuvem, serviços AWS, segurança e arquitetura de soluções escaláveis.
+
+                            <!-- Título e instituição centralizados -->
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300 mb-2">Desenvolvedor Full Stack Jr.</h3>
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 flex items-center justify-center mb-4">
+                                <i class="fas fa-graduation-cap mr-2"></i>
+                                +prati
                             </p>
-                            <div class="certification-skills">
-                                <span class="skill-tag">Cloud Computing</span>
-                                <span class="skill-tag">EC2</span>
-                                <span class="skill-tag">S3</span>
+
+                            <!-- Descrição centralizada -->
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                                Curso completo de desenvolvimento full stack abordando tanto frontend quanto backend, incluindo AWS e Cloud Computing.
+                            </p>
+
+                            <!-- Tags de habilidades centralizadas -->
+                            <div class="flex flex-wrap justify-center gap-2">
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700">Frontend</span>
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/50 dark:to-emerald-900/50 text-green-800 dark:text-green-200 rounded-full text-sm font-medium border border-green-200 dark:border-green-700">Backend</span>
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-900/50 dark:to-red-900/50 text-orange-800 dark:text-orange-200 rounded-full text-sm font-medium border border-orange-200 dark:border-orange-700">AWS</span>
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/50 dark:to-pink-900/50 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium border border-purple-200 dark:border-purple-700">Cloud</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Certificação 6 -->
-                    <div class="certification-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
-                        <div class="certification-header">
-                            <div class="certification-icon bg-red-100 dark:bg-red-900/30">
-                                <i class="fab fa-git-alt text-red-600 dark:text-red-400"></i>
+                    <!-- Certificação Git -->
+                    <div class="group relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20 dark:border-gray-700/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden" data-aos="fade-up" data-aos-delay="600">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-400/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div class="relative z-10 text-center">
+                            <!-- Ícone centralizado -->
+                            <div class="flex justify-center mb-6">
+                                <div class="relative">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                        <i class="fab fa-git-alt text-white text-3xl"></i>
+                                    </div>
+                                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="certification-badge">
-                                <span class="text-xs font-medium text-red-600 dark:text-red-400">Certificado</span>
-                            </div>
-                        </div>
-                        <div class="certification-content">
-                            <h3 class="certification-title">Git & GitHub</h3>
-                            <p class="certification-provider">Digital Innovation One</p>
-                            <p class="certification-description">
-                                Controle de versão, colaboração em equipe, workflows com Git e GitHub, CI/CD e boas práticas.
+
+                            <!-- Título e instituição centralizados -->
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300 mb-2">Git & GitHub</h3>
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 flex items-center justify-center mb-4">
+                                <i class="fas fa-graduation-cap mr-2"></i>
+                                Udemy
                             </p>
-                            <div class="certification-skills">
-                                <span class="skill-tag">Git</span>
-                                <span class="skill-tag">GitHub</span>
-                                <span class="skill-tag">CI/CD</span>
+
+                            <!-- Descrição centralizada -->
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                                Controle de versão e colaboração em projetos usando Git e GitHub para desenvolvimento em equipe.
+                            </p>
+
+                            <!-- Tags de habilidades centralizadas -->
+                            <div class="flex flex-wrap justify-center gap-2">
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-red-100 to-pink-100 dark:from-red-900/50 dark:to-pink-900/50 text-red-800 dark:text-red-200 rounded-full text-sm font-medium border border-red-200 dark:border-red-700">Git</span>
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-gray-100 to-slate-100 dark:from-gray-700/50 dark:to-slate-700/50 text-gray-800 dark:text-gray-200 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-600">GitHub</span>
+                                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700">GitFlow</span>
                             </div>
                         </div>
                     </div>
@@ -469,194 +634,122 @@
             </div>
         </section>
 
-        <!-- Seção de Competências -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                        Competências <span class="text-primary-600 dark:text-primary-400">Desenvolvidas</span>
+        <!-- Seção de Habilidades -->
+        <section class="py-20 bg-white dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                        Habilidades Técnicas
                     </h2>
-                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                        Habilidades técnicas e soft skills adquiridas ao longo da minha formação
+                    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                        Tecnologias e ferramentas que domino e utilizo em meus projetos.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <!-- Competências Técnicas -->
-                    <div data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
-                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-gray-700">
-                            <div class="flex items-center mb-8">
-                                <div class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-xl mr-4">
-                                    <i class="fas fa-code text-2xl text-primary-600 dark:text-primary-400"></i>
+                    <!-- Frontend -->
+                    <div data-aos="fade-right">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
+                            <i class="fas fa-laptop-code text-primary-600 dark:text-primary-400 mr-3"></i>
+                            Frontend
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-gray-700 dark:text-gray-300 font-medium">HTML5 & CSS3</span>
+                                    <span class="text-primary-600 dark:text-primary-400 font-bold">95%</span>
                                 </div>
-                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Competências Técnicas</h3>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-primary-500 to-blue-500 h-3 rounded-full progress-bar" data-width="95"></div>
+                                </div>
                             </div>
                             
-                            <div class="space-y-6">
-                                <div class="skill-progress-item">
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-gray-700 dark:text-gray-300 font-medium">JavaScript/TypeScript</span>
-                                        <span class="text-primary-600 dark:text-primary-400 font-bold">90%</span>
-                                    </div>
-                                    <div class="skill-progress-bar">
-                                        <div class="skill-progress-fill" style="width: 90%"></div>
-                                    </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-gray-700 dark:text-gray-300 font-medium">JavaScript</span>
+                                    <span class="text-primary-600 dark:text-primary-400 font-bold">90%</span>
                                 </div>
-
-                                <div class="skill-progress-item">
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-gray-700 dark:text-gray-300 font-medium">React.js/Next.js</span>
-                                        <span class="text-primary-600 dark:text-primary-400 font-bold">20%</span>
-                                    </div>
-                                    <div class="skill-progress-bar">
-                                        <div class="skill-progress-fill" style="width: 20%"></div>
-                                    </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-yellow-500 to-orange-500 h-3 rounded-full progress-bar" data-width="90"></div>
                                 </div>
-
-                                <div class="skill-progress-item">
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-gray-700 dark:text-gray-300 font-medium">Node.js/Express</span>
-                                        <span class="text-primary-600 dark:text-primary-400 font-bold">20%</span>
-                                    </div>
-                                    <div class="skill-progress-bar">
-                                        <div class="skill-progress-fill" style="width: 20%"></div>
-                                    </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-gray-700 dark:text-gray-300 font-medium">React.js</span>
+                                    <span class="text-primary-600 dark:text-primary-400 font-bold">85%</span>
                                 </div>
-
-                                <div class="skill-progress-item">
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-gray-700 dark:text-gray-300 font-medium">Banco de Dados</span>
-                                        <span class="text-primary-600 dark:text-primary-400 font-bold">75%</span>
-                                    </div>
-                                    <div class="skill-progress-bar">
-                                        <div class="skill-progress-fill" style="width: 75%"></div>
-                                    </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-3 rounded-full progress-bar" data-width="85"></div>
                                 </div>
-
-                                <div class="skill-progress-item">
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-gray-700 dark:text-gray-300 font-medium">HTML & CSS</span>
-                                        <span class="text-primary-600 dark:text-primary-400 font-bold">100%</span>
-                                    </div>
-                                    <div class="skill-progress-bar">
-                                        <div class="skill-progress-fill" style="width: 100%"></div>
-                                    </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-gray-700 dark:text-gray-300 font-medium">Tailwind CSS</span>
+                                    <span class="text-primary-600 dark:text-primary-400 font-bold">88%</span>
                                 </div>
-
-                                <div class="skill-progress-item">
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-gray-700 dark:text-gray-300 font-medium">Tailwind & Bootstrap</span>
-                                        <span class="text-primary-600 dark:text-primary-400 font-bold">85%</span>
-                                    </div>
-                                    <div class="skill-progress-bar">
-                                        <div class="skill-progress-fill" style="width: 85%"></div>
-                                    </div>
-                                </div>
-
-                                <div class="skill-progress-item">
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-gray-700 dark:text-gray-300 font-medium">Git/GitHub</span>
-                                        <span class="text-primary-600 dark:text-primary-400 font-bold">85%</span>
-                                    </div>
-                                    <div class="skill-progress-bar">
-                                        <div class="skill-progress-fill" style="width: 85%"></div>
-                                    </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-teal-500 to-blue-500 h-3 rounded-full progress-bar" data-width="88"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Soft Skills -->
-                    <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
-                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-gray-700">
-                            <div class="flex items-center mb-8">
-                                <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-xl mr-4">
-                                    <i class="fas fa-users text-2xl text-blue-600 dark:text-blue-400"></i>
+                    <!-- Backend -->
+                    <div data-aos="fade-left">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
+                            <i class="fas fa-server text-green-600 dark:text-green-400 mr-3"></i>
+                            Backend
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-gray-700 dark:text-gray-300 font-medium">Node.js</span>
+                                    <span class="text-green-600 dark:text-green-400 font-bold">85%</span>
                                 </div>
-                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Soft Skills</h3>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-green-500 to-emerald-500 h-3 rounded-full progress-bar" data-width="85"></div>
+                                </div>
                             </div>
                             
-                            <div class="space-y-6">
-                                <div class="soft-skill-item">
-                                    <div class="flex items-center mb-3">
-                                        <div class="w-3 h-3 bg-primary-500 rounded-full mr-3"></div>
-                                        <span class="text-gray-700 dark:text-gray-300 font-medium">Resolução de Problemas</span>
-                                    </div>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm ml-6">
-                                        Capacidade de analisar problemas complexos e desenvolver soluções eficientes e criativas.
-                                    </p>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-gray-700 dark:text-gray-300 font-medium">PHP</span>
+                                    <span class="text-green-600 dark:text-green-400 font-bold">80%</span>
                                 </div>
-
-                                <div class="soft-skill-item">
-                                    <div class="flex items-center mb-3">
-                                        <div class="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
-                                        <span class="text-gray-700 dark:text-gray-300 font-medium">Trabalho em Equipe</span>
-                                    </div>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm ml-6">
-                                        Experiência em colaboração, comunicação efetiva e contribuição para objetivos comuns.
-                                    </p>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-purple-500 to-indigo-500 h-3 rounded-full progress-bar" data-width="80"></div>
                                 </div>
-
-                                <div class="soft-skill-item">
-                                    <div class="flex items-center mb-3">
-                                        <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
-                                        <span class="text-gray-700 dark:text-gray-300 font-medium">Aprendizado Contínuo</span>
-                                    </div>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm ml-6">
-                                        Sempre em busca de novas tecnologias e metodologias para aprimorar minhas habilidades.
-                                    </p>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-gray-700 dark:text-gray-300 font-medium">MySQL</span>
+                                    <span class="text-green-600 dark:text-green-400 font-bold">82%</span>
                                 </div>
-
-                                <div class="soft-skill-item">
-                                    <div class="flex items-center mb-3">
-                                        <div class="w-3 h-3 bg-purple-500 rounded-full mr-3"></div>
-                                        <span class="text-gray-700 dark:text-gray-300 font-medium">Pensamento Crítico</span>
-                                    </div>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm ml-6">
-                                        Análise objetiva de situações e tomada de decisões baseadas em dados e evidências.
-                                    </p>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full progress-bar" data-width="82"></div>
                                 </div>
-
-                                <div class="soft-skill-item">
-                                    <div class="flex items-center mb-3">
-                                        <div class="w-3 h-3 bg-orange-500 rounded-full mr-3"></div>
-                                        <span class="text-gray-700 dark:text-gray-300 font-medium">Adaptabilidade</span>
-                                    </div>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm ml-6">
-                                        Flexibilidade para se adaptar a novas tecnologias, metodologias e ambientes de trabalho.
-                                    </p>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-gray-700 dark:text-gray-300 font-medium">MongoDB</span>
+                                    <span class="text-green-600 dark:text-green-400 font-bold">75%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-green-600 to-green-700 h-3 rounded-full progress-bar" data-width="75"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary-600 to-blue-600 dark:from-primary-700 dark:to-blue-700">
-            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="800">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
-                    Vamos Construir Algo Incrível Juntos?
-                </h2>
-                <p class="text-xl text-blue-100 mb-8 leading-relaxed">
-                    Com uma base sólida em educação e experiência prática, estou pronto para contribuir com seu próximo projeto.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="index.html#contato" class="bg-white text-primary-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
-                        <i class="fas fa-envelope mr-2"></i>
-                        Entrar em Contato
-                    </a>
-                    <a href="projetos.html" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary-600 transition-all duration-300 transform hover:scale-105">
-                        <i class="fas fa-code mr-2"></i>
-                        Ver Projetos
-                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer com design moderno -->
     <footer class="bg-gradient-to-b from-gray-900 to-black text-gray-300 pt-16 pb-8 relative overflow-hidden">
         <!-- Elementos decorativos de fundo -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-5 pointer-events-none">
@@ -687,7 +780,7 @@
                     
                     <div class="pt-4">
                         <div class="flex space-x-4">
-                            <a href="https://github.com/joaopaulo-dev" target="_blank" rel="noopener noreferrer"
+                            <a href="https://github.com/JoaoPaulo23342" target="_blank" rel="noopener noreferrer"
                                class="bg-gray-800 hover:bg-gray-700 p-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">
                                 <i class="fab fa-github text-xl"></i>
                             </a>
@@ -698,10 +791,6 @@
                             <a href="https://wa.me/5561998278558" target="_blank" rel="noopener noreferrer"
                                class="bg-gray-800 hover:bg-green-700 p-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">
                                 <i class="fab fa-whatsapp text-xl"></i>
-                            </a>
-                            <a href="https://instagram.com/joaopauloresende" target="_blank" rel="noopener noreferrer"
-                               class="bg-gray-800 hover:bg-pink-700 p-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">
-                                <i class="fab fa-instagram text-xl"></i>
                             </a>
                         </div>
                     </div>
@@ -788,7 +877,7 @@
                                 <h4 class="text-sm font-medium text-gray-300 uppercase tracking-wider">LinkedIn</h4>
                                 <a href="https://www.linkedin.com/in/joaopauloresende/" target="_blank" rel="noopener noreferrer"
                                    class="text-gray-400 hover:text-blue-400 transition-all duration-300">
-                                    linkedin.com/in/joaopauloresende
+                                    LinkedIn
                                 </a>
                             </div>
                         </li>
@@ -805,7 +894,7 @@
                             <span class="inline-block mr-2">
                                 <i class="far fa-copyright text-primary-500"></i>
                             </span>
-                            <span>2023 João Paulo. Todos os direitos reservados.</span>
+                            <span>2025 João Paulo. Todos os direitos reservados.</span>
                         </p>
                     </div>
 
@@ -837,6 +926,9 @@
     </script>
     
     <!-- Script principal -->
-    <script src="index.js"></script>
+    <script src="formation.js"></script>
+    
+    <!-- Script do menu mobile -->
+    <script src="menu-animation.js"></script>
 </body>
 </html>
