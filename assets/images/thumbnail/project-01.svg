@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+  <defs>
+    <linearGradient id="terminalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d2d2d;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Terminal Window -->
+  <rect x="50" y="40" width="300" height="170" rx="8" fill="url(#terminalGrad)" stroke="#4a5568" stroke-width="2"/>
+  
+  <!-- Terminal Header -->
+  <rect x="50" y="40" width="300" height="30" rx="8" fill="#2d3748"/>
+  <circle cx="70" cy="55" r="5" fill="#ff5f56"/>
+  <circle cx="90" cy="55" r="5" fill="#ffbd2e"/>
+  <circle cx="110" cy="55" r="5" fill="#27ca3f"/>
+  
+  <!-- Terminal Content -->
+  <text x="70" y="90" font-family="Monaco, monospace" font-size="12" fill="#00ff00" filter="url(#glow)">$ client-cli --help</text>
+  <text x="70" y="110" font-family="Monaco, monospace" font-size="10" fill="#a0aec0">Usage: client-cli [options]</text>
+  <text x="70" y="125" font-family="Monaco, monospace" font-size="10" fill="#a0aec0">Commands:</text>
+  <text x="80" y="140" font-family="Monaco, monospace" font-size="10" fill="#81c784">  add     Add new client</text>
+  <text x="80" y="155" font-family="Monaco, monospace" font-size="10" fill="#81c784">  list    List all clients</text>
+  <text x="80" y="170" font-family="Monaco, monospace" font-size="10" fill="#81c784">  update  Update client</text>
+  <text x="80" y="185" font-family="Monaco, monospace" font-size="10" fill="#81c784">  delete  Remove client</text>
+  <text x="70" y="200" font-family="Monaco, monospace" font-size="12" fill="#00ff00" filter="url(#glow)">$ █</text>
+  
+  <!-- Floating Icons -->
+  <g opacity="0.3">
+    <circle cx="320" cy="80" r="15" fill="#ffffff" opacity="0.2"/>
+    <text x="315" y="85" font-family="FontAwesome" font-size="14" fill="#ffffff">⚡</text>
+  </g>
+  
+  <g opacity="0.3">
+    <circle cx="340" cy="120" r="12" fill="#ffffff" opacity="0.2"/>
+    <text x="336" y="125" font-family="FontAwesome" font-size="12" fill="#ffffff">📊</text>
+  </g>
+</svg>

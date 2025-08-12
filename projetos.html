@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="projects-style.css">
     
     <script>
         tailwind.config = {
@@ -76,6 +77,7 @@
                         <h1 class="text-xl font-bold text-gray-900 dark:text-white">João Paulo</h1>
                         <p class="text-sm text-gray-600 dark:text-gray-400">Desenvolvedor Fullstack</p>
                     </div>
+
                 </div>
 
                 <!-- Navegação Desktop -->
@@ -174,105 +176,44 @@
     <!-- Main Content -->
     <main class="flex-grow pt-20">
         <!-- Hero Section -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 opacity-70"></div>
-            <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
-                <div class="absolute top-20 left-1/4 w-72 h-72 rounded-full bg-primary-400 blur-3xl animate-pulse-slow"></div>
-                <div class="absolute bottom-20 right-1/4 w-96 h-96 rounded-full bg-blue-400 blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
-            </div>
-            
+        <section class="projects-hero py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
             <div class="max-w-7xl mx-auto relative z-10">
-                <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
-                    <div class="inline-block px-6 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full text-sm font-medium mb-6">
-                        <i class="fas fa-code mr-2"></i>
-                        Meu Portfólio
+                <div class="projects-hero-content text-center" data-aos="fade-up" data-aos-duration="800">
+                    <div class="inline-block px-8 py-3 bg-white/20 backdrop-blur-md text-white rounded-full text-sm font-bold mb-8 border border-white/30">
+                        <i class="fas fa-rocket mr-2"></i>
+                        PORTFÓLIO DE PROJETOS
                     </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-                        Meus <span class="text-primary-600 dark:text-primary-400">Projetos</span>
+                    <h1 class="mb-6 leading-tight">
+                        Meus Projetos
                     </h1>
-                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                        Explore uma seleção dos meus trabalhos mais recentes, onde aplico as melhores práticas de desenvolvimento 
-                        para criar soluções inovadoras e funcionais.
+                    <p>
+                        Explore uma coleção cuidadosamente selecionada dos meus trabalhos mais recentes, 
+                        onde aplico tecnologias modernas e as melhores práticas de desenvolvimento 
+                        para criar soluções inovadoras e impactantes.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Filtros de Projetos -->
-        <section class="py-12 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm">
-            <div class="max-w-7xl mx-auto">
-                <!-- Container dos filtros com design moderno -->
-                <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-gray-200/50 dark:border-gray-700/50 mb-12" data-aos="fade-up" data-aos-duration="800">
-                    <div class="text-center mb-6">
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Filtrar Projetos</h2>
-                        <p class="text-gray-600 dark:text-gray-400">Explore meus projetos por categoria</p>
-                    </div>
-                    
-                    <!-- Grid responsivo dos filtros -->
-                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 max-w-4xl mx-auto">
-                        <button class="project-filter-btn active group" data-filter="all">
-                            <div class="flex flex-col items-center space-y-2">
-                                <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                                    <i class="fas fa-th-large text-lg"></i>
-                                </div>
-                                <span class="text-sm font-medium">Todos</span>
-                                <span class="text-xs text-gray-500 dark:text-gray-400">6 projetos</span>
-                            </div>
-                        </button>
-                        
-                        <button class="project-filter-btn group" data-filter="web">
-                            <div class="flex flex-col items-center space-y-2">
-                                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                                    <i class="fas fa-globe text-lg"></i>
-                                </div>
-                                <span class="text-sm font-medium">Web Apps</span>
-                                <span class="text-xs text-gray-500 dark:text-gray-400">4 projetos</span>
-                            </div>
-                        </button>
-                        
-                        <button class="project-filter-btn group" data-filter="mobile">
-                            <div class="flex flex-col items-center space-y-2">
-                                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                                    <i class="fas fa-mobile-alt text-lg"></i>
-                                </div>
-                                <span class="text-sm font-medium">Mobile</span>
-                                <span class="text-xs text-gray-500 dark:text-gray-400">2 projetos</span>
-                            </div>
-                        </button>
-                        
-                        <button class="project-filter-btn group" data-filter="api">
-                            <div class="flex flex-col items-center space-y-2">
-                                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                                    <i class="fas fa-server text-lg"></i>
-                                </div>
-                                <span class="text-sm font-medium">APIs</span>
-                                <span class="text-xs text-gray-500 dark:text-gray-400">2 projetos</span>
-                            </div>
-                        </button>
-                        
-                        <button class="project-filter-btn group" data-filter="fullstack">
-                            <div class="flex flex-col items-center space-y-2">
-                                <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                                    <i class="fas fa-layer-group text-lg"></i>
-                                </div>
-                                <span class="text-sm font-medium">Fullstack</span>
-                                <span class="text-xs text-gray-500 dark:text-gray-400">3 projetos</span>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
         <!-- Grid de Projetos -->
-        <section class="py-12 px-4 sm:px-6 lg:px-8">
+        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
             <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Título da seção -->
+                <div class="projects-section-title" data-aos="fade-up">
+                    <h2>Todos os Projetos</h2>
+                    <p>
+                        Explore minha coleção completa de projetos, desde aplicações web modernas até APIs robustas e soluções mobile inovadoras.
+                    </p>
+                </div>
+                
+                <div class="projects-grid" id="projects-grid">
                     
-                    <!-- Projeto 1 - Client CLI -->
+                    <!-- Projeto 1 - CLIENT CLI -->
                     <div class="project-card-modern" data-category="fullstack web" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                         <div class="project-image-wrapper">
-                            <img src="assets/images/thumbnail/project-01.png" alt="Client CLI" class="project-image-modern">
+                            <img src="assets/images/thumbnail/project-01.svg" alt="CLIENT CLI" class="project-image-modern">
                             <div class="project-overlay-modern">
                                 <div class="project-tech-stack">
                                     <span class="tech-badge">Node.js</span>
@@ -283,25 +224,21 @@
                         </div>
                         <div class="project-content-modern">
                             <div class="project-header">
-                                <h3 class="project-title">Client CLI</h3>
+                                <h3 class="project-title">CLIENT CLI</h3>
                                 <div class="project-status">
                                     <span class="status-badge completed">Concluído</span>
                                 </div>
                             </div>
                             <p class="project-description">
-                                Interface de linha de comando para gerenciamento de clientes com funcionalidades CRUD completas e relatórios automatizados.
+                                Sistema de gerenciamento de clientes via linha de comando. Permite criar, ler, alterar e deletar clientes com funcionalidades CRUD completas através de interface CLI.
                             </p>
                             <div class="project-features">
                                 <span class="feature-tag"><i class="fas fa-terminal mr-1"></i>CLI</span>
                                 <span class="feature-tag"><i class="fas fa-users mr-1"></i>Clientes</span>
-                                <span class="feature-tag"><i class="fas fa-chart-bar mr-1"></i>Relatórios</span>
+                                <span class="feature-tag"><i class="fas fa-database mr-1"></i>CRUD</span>
                             </div>
                             <div class="project-actions">
-                                <a href="#" class="btn-project-primary">
-                                    <i class="fas fa-external-link-alt mr-2"></i>
-                                    Ver Demo
-                                </a>
-                                <a href="#" class="btn-project-secondary">
+                                <a href="https://github.com/JoaoPaulo23342/Pay-Bank" target="_blank" class="btn-project-secondary">
                                     <i class="fab fa-github mr-2"></i>
                                     Código
                                 </a>
@@ -310,14 +247,14 @@
                     </div>
 
                     <!-- Projeto 2 - API CAR -->
-                    <div class="project-card-modern" data-category="web api" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="project-card-modern" data-category="cli api" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                         <div class="project-image-wrapper">
-                            <img src="assets/images/thumbnail/project-02.png" alt="API CAR" class="project-image-modern">
+                            <img src="assets/images/thumbnail/project-02.svg" alt="API CAR" class="project-image-modern">
                             <div class="project-overlay-modern">
                                 <div class="project-tech-stack">
                                     <span class="tech-badge">Node.js</span>
-                                    <span class="tech-badge">Express</span>
-                                    <span class="tech-badge">MongoDB</span>
+                                    <span class="tech-badge">CLI</span>
+                                    <span class="tech-badge">FIPE API</span>
                                 </div>
                             </div>
                         </div>
@@ -329,18 +266,14 @@
                                 </div>
                             </div>
                             <p class="project-description">
-                                API RESTful para gerenciamento de veículos com autenticação JWT, documentação Swagger e testes automatizados.
+                                Interface de linha de comando que permite buscar preços de veículos pela tabela FIPE. Consulta rápida e eficiente de valores de carros, motos e caminhões.
                             </p>
                             <div class="project-features">
-                                <span class="feature-tag"><i class="fas fa-car mr-1"></i>Veículos</span>
-                                <span class="feature-tag"><i class="fas fa-shield-alt mr-1"></i>JWT Auth</span>
-                                <span class="feature-tag"><i class="fas fa-file-alt mr-1"></i>Swagger</span>
+                                <span class="feature-tag"><i class="fas fa-terminal mr-1"></i>CLI</span>
+                                <span class="feature-tag"><i class="fas fa-search mr-1"></i>Busca FIPE</span>
+                                <span class="feature-tag"><i class="fas fa-dollar-sign mr-1"></i>Preços</span>
                             </div>
                             <div class="project-actions">
-                                <a href="#" class="btn-project-primary">
-                                    <i class="fas fa-book mr-2"></i>
-                                    Documentação
-                                </a>
                                 <a href="#" class="btn-project-secondary">
                                     <i class="fab fa-github mr-2"></i>
                                     Código
@@ -349,38 +282,34 @@
                         </div>
                     </div>
 
-                    <!-- Projeto 3 - E-commerce Platform -->
-                    <div class="project-card-modern" data-category="fullstack web" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <!-- Projeto 3 - Dianome API -->
+                    <div class="project-card-modern" data-category="api rest" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                         <div class="project-image-wrapper">
-                            <img src="assets/images/thumbnail/project-03.png" alt="E-commerce Platform" class="project-image-modern">
+                            <img src="assets/images/thumbnail/dianome-api.svg" alt="Dianome API" class="project-image-modern">
                             <div class="project-overlay-modern">
                                 <div class="project-tech-stack">
-                                    <span class="tech-badge">React</span>
-                                    <span class="tech-badge">Node.js</span>
-                                    <span class="tech-badge">PostgreSQL</span>
+                                    <span class="tech-badge">Spring Boot</span>
+                                    <span class="tech-badge">Java</span>
+                                    <span class="tech-badge">MySQL</span>
                                 </div>
                             </div>
                         </div>
                         <div class="project-content-modern">
                             <div class="project-header">
-                                <h3 class="project-title">E-commerce Platform</h3>
+                                <h3 class="project-title">Dianome API</h3>
                                 <div class="project-status">
                                     <span class="status-badge completed">Concluído</span>
                                 </div>
                             </div>
                             <p class="project-description">
-                                Plataforma completa de e-commerce com painel administrativo, sistema de pagamentos e gestão de estoque.
+                                API REST para controle de entregadores da empresa Dianome. Sistema CRUD completo com Spring Boot, MySQL e integração Eclipse para gerenciamento de operações de entrega.
                             </p>
                             <div class="project-features">
-                                <span class="feature-tag"><i class="fas fa-shopping-cart mr-1"></i>Carrinho</span>
-                                <span class="feature-tag"><i class="fas fa-credit-card mr-1"></i>Pagamentos</span>
-                                <span class="feature-tag"><i class="fas fa-chart-bar mr-1"></i>Analytics</span>
+                                <span class="feature-tag"><i class="fas fa-truck mr-1"></i>Entregadores</span>
+                                <span class="feature-tag"><i class="fas fa-database mr-1"></i>CRUD</span>
+                                <span class="feature-tag"><i class="fas fa-server mr-1"></i>REST API</span>
                             </div>
                             <div class="project-actions">
-                                <a href="#" class="btn-project-primary">
-                                    <i class="fas fa-external-link-alt mr-2"></i>
-                                    Ver Demo
-                                </a>
                                 <a href="#" class="btn-project-secondary">
                                     <i class="fab fa-github mr-2"></i>
                                     Código
@@ -389,35 +318,35 @@
                         </div>
                     </div>
 
-                    <!-- Projeto 4 - Dashboard Analytics -->
+                    <!-- Projeto 4 - Gerenciador de Grupos -->
                     <div class="project-card-modern" data-category="web fullstack" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                         <div class="project-image-wrapper">
-                            <img src="assets/images/thumbnail/project-04.png" alt="Dashboard Analytics" class="project-image-modern">
+                            <img src="assets/images/thumbnail/gerenciador-grupos.svg" alt="Gerenciador de Grupos" class="project-image-modern">
                             <div class="project-overlay-modern">
                                 <div class="project-tech-stack">
-                                    <span class="tech-badge">React</span>
-                                    <span class="tech-badge">D3.js</span>
-                                    <span class="tech-badge">Python</span>
+                                    <span class="tech-badge">Java</span>
+                                    <span class="tech-badge">Spring Boot</span>
+                                    <span class="tech-badge">MySQL</span>
                                 </div>
                             </div>
                         </div>
                         <div class="project-content-modern">
                             <div class="project-header">
-                                <h3 class="project-title">Dashboard Analytics</h3>
+                                <h3 class="project-title">Gerenciador De Grupos</h3>
                                 <div class="project-status">
                                     <span class="status-badge completed">Concluído</span>
                                 </div>
                             </div>
                             <p class="project-description">
-                                Dashboard interativo para análise de dados com gráficos dinâmicos, filtros avançados e exportação de relatórios.
+                                Sistema completo para gerenciamento de grupos universitários, facilitando a organização de projetos e atividades acadêmicas.
                             </p>
                             <div class="project-features">
-                                <span class="feature-tag"><i class="fas fa-chart-line mr-1"></i>Gráficos</span>
-                                <span class="feature-tag"><i class="fas fa-filter mr-1"></i>Filtros</span>
-                                <span class="feature-tag"><i class="fas fa-download mr-1"></i>Export</span>
+                                <span class="feature-tag"><i class="fas fa-users mr-1"></i>Grupos</span>
+                                <span class="feature-tag"><i class="fas fa-project-diagram mr-1"></i>Projetos</span>
+                                <span class="feature-tag"><i class="fas fa-graduation-cap mr-1"></i>Acadêmico</span>
                             </div>
                             <div class="project-actions">
-                                <a href="#" class="btn-project-primary">
+                                <a href="https://pay-bank-o6d1.vercel.app/pages/abrir-conta-form-2.html" target="_blank" class="btn-project-primary">
                                     <i class="fas fa-external-link-alt mr-2"></i>
                                     Ver Demo
                                 </a>
@@ -429,39 +358,39 @@
                         </div>
                     </div>
 
-                    <!-- Projeto 5 - Fitness Tracker -->
-                    <div class="project-card-modern" data-category="mobile" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+                    <!-- Projeto 5 - Pay Bank -->
+                    <div class="project-card-modern" data-category="web fintech" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
                         <div class="project-image-wrapper">
-                            <img src="assets/images/thumbnail/project-05.png" alt="Fitness Tracker" class="project-image-modern">
+                            <img src="assets/images/thumbnail/pay-bank.svg" alt="Pay Bank" class="project-image-modern">
                             <div class="project-overlay-modern">
                                 <div class="project-tech-stack">
-                                    <span class="tech-badge">Flutter</span>
-                                    <span class="tech-badge">Dart</span>
-                                    <span class="tech-badge">Firebase</span>
+                                    <span class="tech-badge">HTML5</span>
+                                    <span class="tech-badge">CSS3</span>
+                                    <span class="tech-badge">JavaScript</span>
                                 </div>
                             </div>
                         </div>
                         <div class="project-content-modern">
                             <div class="project-header">
-                                <h3 class="project-title">Fitness Tracker</h3>
+                                <h3 class="project-title">Pay Bank</h3>
                                 <div class="project-status">
                                     <span class="status-badge completed">Concluído</span>
                                 </div>
                             </div>
                             <p class="project-description">
-                                App de fitness com tracking de exercícios, metas personalizadas e integração com wearables.
+                                Página que simula um banco digital com sistema de cadastro interativo. Demonstra funcionalidades bancárias sem persistência de dados, focando na experiência do usuário.
                             </p>
                             <div class="project-features">
-                                <span class="feature-tag"><i class="fas fa-running mr-1"></i>Exercícios</span>
-                                <span class="feature-tag"><i class="fas fa-target mr-1"></i>Metas</span>
-                                <span class="feature-tag"><i class="fas fa-watch mr-1"></i>Wearables</span>
+                                <span class="feature-tag"><i class="fas fa-university mr-1"></i>Banco Digital</span>
+                                <span class="feature-tag"><i class="fas fa-user-plus mr-1"></i>Cadastro</span>
+                                <span class="feature-tag"><i class="fas fa-desktop mr-1"></i>Simulação</span>
                             </div>
                             <div class="project-actions">
-                                <a href="#" class="btn-project-primary">
-                                    <i class="fas fa-play mr-2"></i>
-                                    Ver App
+                                <a href="https://pay-bank-o6d1.vercel.app/pages/abrir-conta-form-2.html" target="_blank" class="btn-project-primary">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    Ver Demo
                                 </a>
-                                <a href="#" class="btn-project-secondary">
+                                <a href="https://github.com/JoaoPaulo23342/Pay-Bank" target="_blank" class="btn-project-secondary">
                                     <i class="fab fa-github mr-2"></i>
                                     Código
                                 </a>
@@ -472,7 +401,7 @@
                     <!-- Projeto 6 - Portfolio Website -->
                     <div class="project-card-modern" data-category="web" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
                         <div class="project-image-wrapper">
-                            <img src="assets/images/thumbnail/project-06.png" alt="Portfolio Website" class="project-image-modern">
+                            <img src="assets/images/thumbnail/project-06.svg" alt="Portfolio Website" class="project-image-modern">
                             <div class="project-overlay-modern">
                                 <div class="project-tech-stack">
                                     <span class="tech-badge">HTML5</span>

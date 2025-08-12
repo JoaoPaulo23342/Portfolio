@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+  <defs>
+    <linearGradient id="apiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- API Documentation Window -->
+  <rect x="40" y="30" width="320" height="190" rx="12" fill="#ffffff" filter="url(#shadow)"/>
+  
+  <!-- Header -->
+  <rect x="40" y="30" width="320" height="40" rx="12" fill="url(#apiGrad)"/>
+  <text x="60" y="52" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">API CAR Documentation</text>
+  
+  <!-- Swagger UI Style -->
+  <rect x="60" y="80" width="280" height="25" rx="4" fill="#f8f9fa" stroke="#e9ecef"/>
+  <text x="70" y="95" font-family="Monaco, monospace" font-size="12" fill="#198754" font-weight="bold">GET</text>
+  <text x="110" y="95" font-family="Monaco, monospace" font-size="12" fill="#495057">/api/cars</text>
+  
+  <rect x="60" y="110" width="280" height="25" rx="4" fill="#f8f9fa" stroke="#e9ecef"/>
+  <text x="70" y="125" font-family="Monaco, monospace" font-size="12" fill="#fd7e14" font-weight="bold">POST</text>
+  <text x="110" y="125" font-family="Monaco, monospace" font-size="12" fill="#495057">/api/cars</text>
+  
+  <rect x="60" y="140" width="280" height="25" rx="4" fill="#f8f9fa" stroke="#e9ecef"/>
+  <text x="70" y="155" font-family="Monaco, monospace" font-size="12" fill="#0d6efd" font-weight="bold">PUT</text>
+  <text x="110" y="155" font-family="Monaco, monospace" font-size="12" fill="#495057">/api/cars/:id</text>
+  
+  <rect x="60" y="170" width="280" height="25" rx="4" fill="#f8f9fa" stroke="#e9ecef"/>
+  <text x="70" y="185" font-family="Monaco, monospace" font-size="12" fill="#dc3545" font-weight="bold">DELETE</text>
+  <text x="130" y="185" font-family="Monaco, monospace" font-size="12" fill="#495057">/api/cars/:id</text>
+  
+  <!-- Car Icon -->
+  <g transform="translate(300, 160)">
+    <rect x="0" y="10" width="40" height="20" rx="8" fill="#6c757d" opacity="0.3"/>
+    <circle cx="8" cy="35" r="6" fill="#495057" opacity="0.5"/>
+    <circle cx="32" cy="35" r="6" fill="#495057" opacity="0.5"/>
+    <rect x="5" y="5" width="8" height="8" rx="2" fill="#17a2b8" opacity="0.7"/>
+  </g>
+  
+  <!-- JWT Shield -->
+  <g transform="translate(320, 80)">
+    <path d="M0,0 L8,0 L12,4 L8,12 L0,12 Z" fill="#28a745" opacity="0.4"/>
+    <text x="3" y="8" font-family="Arial" font-size="8" fill="#ffffff">🔒</text>
+  </g>
+</svg>

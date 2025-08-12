@@ -1,0 +1,518 @@
+/*
+ * Arquivo: projects-style.css
+ * Descrição: Estilos modernos e responsivos para a página de projetos
+ * Última Atualização: 10/08/2025
+ */
+
+/* --- Seção Hero da Página de Projetos --- */
+.projects-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.dark .projects-hero {
+    background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+}
+
+.projects-hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+.projects-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff, #f1f5f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.projects-hero p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- Grid de Projetos Melhorado --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem 0;
+    }
+    
+    .project-card-modern {
+        margin: 0 auto;
+        max-width: 400px;
+    }
+}
+
+/* --- Cards de Projeto Redesenhados --- */
+.project-card-modern {
+    background: white;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    height: auto;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dark .project-card-modern {
+    background: #1f2937;
+    border-color: rgba(75, 85, 99, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.project-card-modern:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.dark .project-card-modern:hover {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Imagem do Projeto Melhorada --- */
+.project-image-wrapper {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+}
+
+.project-image-modern {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.project-card-modern:hover .project-image-modern {
+    transform: scale(1.1) rotate(1deg);
+    filter: brightness(1) contrast(1.2);
+}
+
+/* --- Overlay Melhorado --- */
+.project-overlay-modern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(99, 102, 241, 0.9) 0%, 
+        rgba(139, 92, 246, 0.9) 50%, 
+        rgba(236, 72, 153, 0.9) 100%);
+    opacity: 0;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.project-card-modern:hover .project-overlay-modern {
+    opacity: 1;
+}
+
+/* --- Tech Stack Badges Melhoradas --- */
+.project-tech-stack {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    z-index: 10;
+    justify-content: flex-end;
+}
+
+.tech-badge {
+    padding: 0.4rem 0.8rem;
+    background: rgba(255, 255, 255, 0.95);
+    color: #374151;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 50px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark .tech-badge {
+    background: rgba(31, 41, 55, 0.95);
+    color: #e5e7eb;
+    border-color: rgba(75, 85, 99, 0.5);
+}
+
+.tech-badge:hover {
+    transform: scale(1.1) translateY(-2px);
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+}
+
+/* --- Conteúdo do Card Melhorado --- */
+.project-content-modern {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 1rem;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #111827, #374151);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+}
+
+.dark .project-title {
+    background: linear-gradient(135deg, #ffffff, #e5e7eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.project-card-modern:hover .project-title {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: translateX(5px);
+}
+
+/* --- Status Badge Melhorado --- */
+.project-status {
+    flex-shrink: 0;
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.status-badge.completed {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.status-badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+}
+
+.status-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+/* --- Descrição Melhorada --- */
+.project-description {
+    color: #6b7280;
+    font-size: 1rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    min-height: 4rem;
+}
+
+.dark .project-description {
+    color: #9ca3af;
+}
+
+/* --- Features Tags Melhoradas --- */
+.project-features {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    overflow: hidden;
+    justify-content: flex-start;
+}
+
+.feature-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    color: #475569;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    white-space: nowrap;
+    min-width: 0;
+}
+
+.dark .feature-tag {
+    background: linear-gradient(135deg, #374151, #4b5563);
+    color: #d1d5db;
+    border-color: rgba(75, 85, 99, 0.3);
+}
+
+.feature-tag:hover {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+}
+
+.feature-tag i {
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+/* --- Botões de Ação Melhorados --- */
+.project-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark .project-actions {
+    border-top-color: rgba(75, 85, 99, 0.3);
+}
+
+.btn-project-primary, .btn-project-secondary {
+    flex: 1;
+    padding: 0.875rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-project-primary {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-project-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.4);
+    background: linear-gradient(135deg, #5b21b6, #7c3aed);
+}
+
+.btn-project-secondary {
+    background: transparent;
+    color: #6366f1;
+    border-color: #6366f1;
+}
+
+.dark .btn-project-secondary {
+    color: #a5b4fc;
+    border-color: #a5b4fc;
+}
+
+.btn-project-secondary:hover {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.3);
+}
+
+/* --- Animações --- */
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card-modern {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.project-card-modern:nth-child(1) { animation-delay: 0.1s; }
+.project-card-modern:nth-child(2) { animation-delay: 0.2s; }
+.project-card-modern:nth-child(3) { animation-delay: 0.3s; }
+.project-card-modern:nth-child(4) { animation-delay: 0.4s; }
+.project-card-modern:nth-child(5) { animation-delay: 0.5s; }
+.project-card-modern:nth-child(6) { animation-delay: 0.6s; }
+
+/* --- Responsividade Mobile --- */
+@media (max-width: 768px) {
+    .projects-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .projects-hero p {
+        font-size: 1.125rem;
+    }
+    
+    .project-card-modern {
+        min-height: 550px;
+    }
+    
+    .project-content-modern {
+        padding: 1.5rem;
+    }
+    
+    .project-title {
+        font-size: 1.25rem;
+    }
+    
+    .project-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .btn-project-primary, .btn-project-secondary {
+        padding: 1rem;
+    }
+    
+    .project-tech-stack {
+        justify-content: flex-start;
+    }
+    
+    .tech-badge {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+/* --- Seção de Título dos Projetos --- */
+.projects-section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.projects-section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #111827, #374151);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.dark .projects-section-title h2 {
+    background: linear-gradient(135deg, #ffffff, #e5e7eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.projects-section-title p {
+    font-size: 1.125rem;
+    color: #6b7280;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.dark .projects-section-title p {
+    color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+    .projects-section-title {
+        margin-bottom: 2rem;
+    }
+    
+    .projects-section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .projects-section-title p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
