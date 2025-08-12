@@ -138,21 +138,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Esconder/mostrar botão de scroll para projetos
+    // Esconder botão de scroll no primeiro scroll
+    let hasScrolled = false;
     window.addEventListener('scroll', () => {
         const scrollBtn = document.getElementById('scrollToProjects');
-        const projectsSection = document.getElementById('projetos');
         
-        if (scrollBtn && projectsSection) {
-            const projectsPosition = projectsSection.getBoundingClientRect().top;
-            
-            if (projectsPosition < window.innerHeight / 2) {
-                scrollBtn.parentElement.classList.add('opacity-0', 'pointer-events-none');
-                scrollBtn.parentElement.classList.remove('animate-bounce');
-            } else {
-                scrollBtn.parentElement.classList.remove('opacity-0', 'pointer-events-none');
-                scrollBtn.parentElement.classList.add('animate-bounce');
-            }
+        if (scrollBtn && !hasScrolled && window.pageYOffset > 0) {
+            hasScrolled = true;
+            scrollBtn.parentElement.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            scrollBtn.parentElement.style.opacity = '0';
+            scrollBtn.parentElement.style.transform = 'translateY(20px)';
+            scrollBtn.parentElement.style.pointerEvents = 'none';
         }
     });
 
