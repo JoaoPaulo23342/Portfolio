@@ -72,28 +72,50 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggleMobile = document.getElementById('theme-toggle-mobile');
     const themeIcon = document.getElementById('theme-icon');
     const themeIconMobile = document.getElementById('theme-icon-mobile');
+    let isToggling = false;
     
     function toggleDarkMode() {
+        if (isToggling) return;
+        isToggling = true;
+        
         const isDark = document.documentElement.classList.toggle('dark');
         localStorage.setItem('darkMode', isDark);
         
-        if (isDark) {
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-            themeIconMobile.classList.replace('fa-moon', 'fa-sun');
-        } else {
-            themeIcon.classList.replace('fa-sun', 'fa-moon');
-            themeIconMobile.classList.replace('fa-sun', 'fa-moon');
+        // Atualizar ícones se existirem
+        if (themeIcon && themeIconMobile) {
+            if (isDark) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                themeIconMobile.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                themeIconMobile.classList.replace('fa-sun', 'fa-moon');
+            }
         }
+        
+        // Adicionar efeito de ripple no botão
+        const button = event.currentTarget;
+        if (button) {
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 150);
+        }
+        
+        setTimeout(() => {
+            isToggling = false;
+        }, 500);
     }
     
     // Verificar preferência do usuário
     if (localStorage.getItem('darkMode') === 'true' || 
         (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-        themeIconMobile.classList.replace('fa-moon', 'fa-sun');
+        if (themeIcon && themeIconMobile) {
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+            themeIconMobile.classList.replace('fa-moon', 'fa-sun');
+        }
     }
     
-    themeToggle.addEventListener('click', toggleDarkMode);
-    themeToggleMobile.addEventListener('click', toggleDarkMode);
+    if (themeToggle) themeToggle.addEventListener('click', toggleDarkMode);
+    if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleDarkMode);
 });

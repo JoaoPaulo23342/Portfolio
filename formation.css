@@ -111,7 +111,7 @@
 
 /* Cards de certificação */
 .certification-card {
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -304,7 +304,7 @@
 .loading {
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 .loaded {
@@ -326,7 +326,4 @@
     animation: pulse-glow 2s ease-in-out infinite;
 }
 
-/* Transições suaves para modo escuro */
-* {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
+/* Transições suaves para modo escuro removidas - causavam conflito */

@@ -93,37 +93,43 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========== Dark Mode Toggle ==========
-    // Suporte para ambos os IDs (antigo e novo)
-    const themeToggle = document.getElementById('theme-toggle') || document.getElementById('darkModeToggle');
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const themeToggle = document.getElementById('theme-toggle');
     const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-    const themeIcon = document.getElementById('theme-icon');
-    const themeIconMobile = document.getElementById('theme-icon-mobile');
+    
+    let isToggling = false; // Flag para prevenir cliques múltiplos
     
     function toggleDarkMode() {
+        // Prevenir cliques múltiplos durante a transição
+        if (isToggling) return;
+        isToggling = true;
+        
         const isDark = document.documentElement.classList.toggle('dark');
         localStorage.setItem('darkMode', isDark);
         
-        if (themeIcon && themeIconMobile) {
-            if (isDark) {
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-                themeIconMobile.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-                themeIconMobile.classList.replace('fa-sun', 'fa-moon');
-            }
+        // Adicionar efeito de ripple no botão
+        const button = event.currentTarget;
+        if (button) {
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 150);
         }
+        
+        // Liberar o toggle após a transição CSS natural
+        setTimeout(() => {
+            isToggling = false;
+        }, 500);
     }
     
-    // Verificar preferência do usuário
+    // Verificar preferência do usuário ao carregar a página
     if (localStorage.getItem('darkMode') === 'true' || 
         (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
-        if (themeIcon && themeIconMobile) {
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-            themeIconMobile.classList.replace('fa-moon', 'fa-sun');
-        }
     }
     
+    // Adicionar event listeners para todos os botões de dark mode
+    if (darkModeToggle) darkModeToggle.addEventListener('click', toggleDarkMode);
     if (themeToggle) themeToggle.addEventListener('click', toggleDarkMode);
     if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleDarkMode);
 

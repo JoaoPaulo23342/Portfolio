@@ -91,6 +91,8 @@
     min-height: 600px;
     display: flex;
     flex-direction: column;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .dark .project-card-modern {
@@ -122,6 +124,8 @@
     object-fit: cover;
     transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
     filter: brightness(0.9) contrast(1.1);
+    will-change: transform, filter;
+    transform: translateZ(0);
 }
 
 .project-card-modern:hover .project-image-modern {

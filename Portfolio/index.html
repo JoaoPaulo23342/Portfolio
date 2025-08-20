@@ -4,14 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>João Paulo - Dev Fullstack</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../dist/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class'
-        }
-    </script>
+    <!-- Configuração do Tailwind agora está no tailwind.config.js -->
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen dark:bg-gray-900">
     <header>
@@ -37,7 +33,7 @@
                             </a>
                         </div>
                         <!-- Botão Dark Mode -->
-                        <button id="theme-toggle" type="button" class="text-gray-300 hover:text-white focus:outline-none dark:text-gray-400 dark:hover:text-gray-200 p-2 rounded-full hover:bg-gray-700 dark:hover:bg-gray-800">
+                        <button id="theme-toggle" type="button" class="dark-mode-btn text-gray-300 hover:text-white focus:outline-none dark:text-gray-400 dark:hover:text-gray-200 p-2 rounded-full hover:bg-gray-700 dark:hover:bg-gray-800">
                             <i id="theme-icon" class="fas fa-moon text-xl"></i>
                         </button>
                     </div>
@@ -45,7 +41,7 @@
                     <!-- Botão Mobile -->
                     <div class="md:hidden flex items-center space-x-4">
                         <!-- Botão Dark Mode Mobile -->
-                        <button id="theme-toggle-mobile" type="button" class="text-gray-300 hover:text-white focus:outline-none dark:text-gray-400 dark:hover:text-gray-200 p-2 rounded-full hover:bg-gray-700 dark:hover:bg-gray-800">
+                        <button id="theme-toggle-mobile" type="button" class="dark-mode-btn text-gray-300 hover:text-white focus:outline-none dark:text-gray-400 dark:hover:text-gray-200 p-2 rounded-full hover:bg-gray-700 dark:hover:bg-gray-800">
                             <i id="theme-icon-mobile" class="fas fa-moon text-xl"></i>
                         </button>
                         <button class="hamburger focus:outline-none" id="menu-btn">

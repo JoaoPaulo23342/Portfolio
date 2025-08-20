@@ -14,25 +14,36 @@ document.addEventListener('DOMContentLoaded', function() {
 function initDarkMode() {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const html = document.documentElement;
+    let isToggling = false;
+    
+    function toggleDarkMode() {
+        if (isToggling) return;
+        isToggling = true;
+        
+        const isDark = html.classList.toggle('dark');
+        localStorage.setItem('darkMode', isDark);
+        
+        // Adicionar efeito de ripple no botão
+        const button = event.currentTarget;
+        if (button) {
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 150);
+        }
+        
+        setTimeout(() => {
+            isToggling = false;
+        }, 500);
+    }
     
     // Verificar preferência salva ou preferência do sistema
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+    if (localStorage.getItem('darkMode') === 'true' || 
+        (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         html.classList.add('dark');
     }
     
-    darkModeToggle?.addEventListener('click', function() {
-        html.classList.toggle('dark');
-        
-        // Salvar preferência
-        if (html.classList.contains('dark')) {
-            localStorage.setItem('theme', 'dark');
-        } else {
-            localStorage.setItem('theme', 'light');
-        }
-    });
+    darkModeToggle?.addEventListener('click', toggleDarkMode);
 }
 
 // Menu Mobile
