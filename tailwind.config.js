@@ -2,11 +2,16 @@
 module.exports = {
   content: [
     "./*.html",
-    "./**/*.html",
-    "./*.js",
-    "./**/*.js",
-    "./Portfolio/**/*.html",
-    "./Portfolio/**/*.js"
+    "./Portfolio/*.html",
+    "./formacao.html",
+    "./projetos.html",
+    "./index.html",
+    "./sucesso.html",
+    "./index.js",
+    "./formation.js",
+    "./projects.js",
+    "./menu-animation.js",
+    "./Portfolio/index.js"
   ],
   darkMode: 'class',
   theme: {

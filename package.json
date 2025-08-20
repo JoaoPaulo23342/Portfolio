@@ -4,9 +4,10 @@
   "description": "Portfólio pessoal de João Paulo - Desenvolvedor Full Stack",
   "main": "index.html",
   "scripts": {
-    "build-css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
-    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+    "build-css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "postinstall": "npm run build"
   },
   "keywords": [
     "portfolio",
@@ -18,6 +19,10 @@
   ],
   "author": "João Paulo",
   "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
   "devDependencies": {
     "tailwindcss": "^3.4.0",
     "@tailwindcss/forms": "^0.5.7",
