@@ -1392,9 +1392,7 @@ body {
 
 #scrollToProjects span {
     white-space: nowrap;
-    max-width: 120px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* Removido max-width, overflow e text-overflow para mostrar texto completo */
 }
 
 /* Responsividade específica do botão de scroll */
@@ -1407,14 +1405,14 @@ body {
     
     #scrollToProjects span {
         font-size: 0.75rem;
-        max-width: 100px;
+        /* Removido max-width para mostrar texto completo */
     }
 }
 
 @media (max-width: 360px) {
     #scrollToProjects span {
         font-size: 0.7rem;
-        max-width: 80px;
+        /* Removido max-width para mostrar texto completo */
     }
 }
 
