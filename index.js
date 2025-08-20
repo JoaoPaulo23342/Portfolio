@@ -104,22 +104,25 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isToggling) return;
         isToggling = true;
         
-        const isDark = document.documentElement.classList.toggle('dark');
-        localStorage.setItem('darkMode', isDark);
+        // Usar requestAnimationFrame para melhor performance
+        requestAnimationFrame(() => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', isDark);
+            
+            // Adicionar efeito de ripple no botão
+            const button = event.currentTarget;
+            if (button) {
+                button.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    button.style.transform = '';
+                }, 100);
+            }
+        });
         
-        // Adicionar efeito de ripple no botão
-        const button = event.currentTarget;
-        if (button) {
-            button.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                button.style.transform = '';
-            }, 150);
-        }
-        
-        // Liberar o toggle após a transição CSS natural
+        // Liberar o toggle mais rapidamente
         setTimeout(() => {
             isToggling = false;
-        }, 500);
+        }, 200);
     }
     
     // Verificar preferência do usuário ao carregar a página

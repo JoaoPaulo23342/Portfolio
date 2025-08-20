@@ -20,21 +20,24 @@ function initDarkMode() {
         if (isToggling) return;
         isToggling = true;
         
-        const isDark = html.classList.toggle('dark');
-        localStorage.setItem('darkMode', isDark);
-        
-        // Adicionar efeito de ripple no botão
-        const button = event.currentTarget;
-        if (button) {
-            button.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                button.style.transform = '';
-            }, 150);
-        }
+        // Usar requestAnimationFrame para melhor performance
+        requestAnimationFrame(() => {
+            const isDark = html.classList.toggle('dark');
+            localStorage.setItem('darkMode', isDark);
+            
+            // Adicionar efeito de ripple no botão
+            const button = event.currentTarget;
+            if (button) {
+                button.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    button.style.transform = '';
+                }, 100);
+            }
+        });
         
         setTimeout(() => {
             isToggling = false;
-        }, 500);
+        }, 200);
     }
     
     // Verificar preferência salva ou preferência do sistema

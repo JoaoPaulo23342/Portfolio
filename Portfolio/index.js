@@ -78,32 +78,35 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isToggling) return;
         isToggling = true;
         
-        const isDark = document.documentElement.classList.toggle('dark');
-        localStorage.setItem('darkMode', isDark);
-        
-        // Atualizar ícones se existirem
-        if (themeIcon && themeIconMobile) {
-            if (isDark) {
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-                themeIconMobile.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-                themeIconMobile.classList.replace('fa-sun', 'fa-moon');
+        // Usar requestAnimationFrame para melhor performance
+        requestAnimationFrame(() => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', isDark);
+            
+            // Atualizar ícones se existirem
+            if (themeIcon && themeIconMobile) {
+                if (isDark) {
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                    themeIconMobile.classList.replace('fa-moon', 'fa-sun');
+                } else {
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                    themeIconMobile.classList.replace('fa-sun', 'fa-moon');
+                }
             }
-        }
-        
-        // Adicionar efeito de ripple no botão
-        const button = event.currentTarget;
-        if (button) {
-            button.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                button.style.transform = '';
-            }, 150);
-        }
+            
+            // Adicionar efeito de ripple no botão
+            const button = event.currentTarget;
+            if (button) {
+                button.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    button.style.transform = '';
+                }, 100);
+            }
+        });
         
         setTimeout(() => {
             isToggling = false;
-        }, 500);
+        }, 200);
     }
     
     // Verificar preferência do usuário
