@@ -4,10 +4,10 @@
   "description": "Portfólio pessoal de João Paulo - Desenvolvedor Full Stack",
   "main": "index.html",
   "scripts": {
-    "build-css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
-    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-    "vercel-build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
+    "build-css": "node ./node_modules/tailwindcss/lib/cli.js -i ./src/input.css -o ./dist/output.css --minify",
+    "build": "node build.js",
+    "dev": "node ./node_modules/tailwindcss/lib/cli.js -i ./src/input.css -o ./dist/output.css --watch",
+    "vercel-build": "node build.js"
   },
   "keywords": [
     "portfolio",

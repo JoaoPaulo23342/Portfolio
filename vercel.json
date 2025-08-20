@@ -12,10 +12,15 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/$1"
+      "dest": "/index.html"
     }
   ],
-  "buildCommand": "npm run build",
+  "buildCommand": "node build.js",
   "outputDirectory": ".",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "functions": {
+    "build.js": {
+      "runtime": "nodejs18.x"
+    }
+  }
 }
