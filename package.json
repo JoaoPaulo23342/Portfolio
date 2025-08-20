@@ -4,10 +4,10 @@
   "description": "Portfólio pessoal de João Paulo - Desenvolvedor Full Stack",
   "main": "index.html",
   "scripts": {
-    "build-css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
-    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-    "postinstall": "npm run build"
+    "build-css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "vercel-build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
   },
   "keywords": [
     "portfolio",
@@ -23,7 +23,7 @@
     "node": ">=16.0.0",
     "npm": ">=8.0.0"
   },
-  "devDependencies": {
+  "dependencies": {
     "tailwindcss": "^3.4.0",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10"
