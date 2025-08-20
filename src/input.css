@@ -3,23 +3,28 @@
 @tailwind utilities;
 
 :root {
-    --transition-duration: 0.5s;
+    --transition-duration: 0.2s;
+    --transition-timing: ease;
+    --transition-fast: 0.15s;
 }
 
-/* Transições globais suaves */
-* {
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: var(--transition-duration);
-}
-
-/* Transições específicas para modo escuro */
+/* Transições otimizadas - apenas para elementos específicos */
 html {
-    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.3s ease;
 }
 
 body {
-    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Transições para elementos interativos */
+button, a, input, textarea, select {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Transições para cards e containers */
+.card, .container, [class*="bg-"], [class*="text-"] {
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Animações personalizadas */
@@ -83,10 +88,13 @@ body {
     will-change: transform;
 }
 
-/* Melhorias para botões de modo escuro */
+/* Melhorias para botões de modo escuro - otimizado */
 .dark-mode-btn {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     transform-origin: center;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 .dark-mode-btn:hover {
@@ -95,4 +103,28 @@ body {
 
 .dark-mode-btn:active {
     transform: scale(0.95) translateZ(0);
+    transition-duration: 0.1s;
+}
+
+/* Classes otimizadas para performance */
+.smooth-transition {
+    transition: background-color 0.2s ease, color 0.2s ease;
+    will-change: background-color, color;
+}
+
+.fast-transition {
+    transition: all 0.15s ease;
+    transform: translateZ(0);
+}
+
+/* Otimização para elementos de navegação */
+nav, header, .navbar {
+    transition: background-color 0.25s ease;
+    will-change: background-color;
+}
+
+/* Otimização para ícones */
+i, svg {
+    transition: color 0.2s ease, transform 0.2s ease;
+    will-change: color, transform;
 }
