@@ -1,0 +1,32 @@
+# Ignore development files
+node_modules
+.git
+.vscode
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore source files (only dist is needed)
+src/
+
+# Ignore local development files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore backup files
+*.bak
+*.tmp
+
+# Ignore Vercel specific files
+vercel.json
+.vercelignore
+
+# Keep only essential files for deployment
+# index.html, dist/, assets/, *.css, *.js, *.php will be included
