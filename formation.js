@@ -14,30 +14,28 @@ document.addEventListener('DOMContentLoaded', function() {
 function initDarkMode() {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const html = document.documentElement;
-    let isToggling = false;
+    let lastToggleTime = 0; // Debounce simples
     
-    function toggleDarkMode() {
-        if (isToggling) return;
-        isToggling = true;
+    function toggleDarkMode(event) {
+        const now = Date.now();
+        // Debounce de 150ms para evitar cliques múltiplos
+        if (now - lastToggleTime < 150) return;
+        lastToggleTime = now;
         
-        // Usar requestAnimationFrame para melhor performance
-        requestAnimationFrame(() => {
-            const isDark = html.classList.toggle('dark');
-            localStorage.setItem('darkMode', isDark);
+        // Aplicar mudança imediatamente
+        const isDark = html.classList.toggle('dark');
+        localStorage.setItem('darkMode', isDark);
+        
+        // Efeito visual no botão (simples e rápido)
+        const button = event?.currentTarget;
+        if (button) {
+            button.style.transform = 'scale(0.95)';
             
-            // Adicionar efeito de ripple no botão
-            const button = event.currentTarget;
-            if (button) {
-                button.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    button.style.transform = '';
-                }, 100);
-            }
-        });
-        
-        setTimeout(() => {
-            isToggling = false;
-        }, 200);
+            // Restaurar botão rapidamente
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 100);
+        }
     }
     
     // Verificar preferência salva ou preferência do sistema

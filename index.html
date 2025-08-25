@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>João Paulo - Dev Fullstack</title>
+    
+    <!-- Preload recursos críticos -->
+    <link rel="preload" href="dist/output.css" as="style">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="assets/images/avatar.jpg" as="image">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    
     <link rel="stylesheet" href="dist/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -152,13 +160,13 @@
                             
                             <!-- Elementos decorativos flutuantes -->
                             <div class="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-white dark:bg-gray-800 rounded-full p-2 sm:p-3 shadow-lg animate-float hidden lg:block">
-                                <img src="./assets/icons/tech/reactjs.svg" alt="React" class="w-6 h-6 sm:w-8 sm:h-8">
+                                <img data-src="./assets/icons/tech/reactjs.svg" alt="React" class="w-6 h-6 sm:w-8 sm:h-8 lazy-loading">
                             </div>
                             <div class="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-white dark:bg-gray-800 rounded-full p-2 sm:p-3 shadow-lg animate-float hidden lg:block" style="animation-delay: 1s;">
-                                <img src="./assets/icons/tech/nodejs.svg" alt="Node.js" class="w-6 h-6 sm:w-8 sm:h-8">
+                                <img data-src="./assets/icons/tech/nodejs.svg" alt="Node.js" class="w-6 h-6 sm:w-8 sm:h-8 lazy-loading">
                             </div>
                             <div class="absolute top-1/2 -right-4 sm:-right-8 bg-white dark:bg-gray-800 rounded-full p-2 sm:p-3 shadow-lg animate-float hidden lg:block" style="animation-delay: 0.5s;">
-                                <img src="./assets/icons/tech/javascript.svg" alt="JavaScript" class="w-6 h-6 sm:w-8 sm:h-8">
+                                <img data-src="./assets/icons/tech/javascript.svg" alt="JavaScript" class="w-6 h-6 sm:w-8 sm:h-8 lazy-loading">
                             </div>
                         </div>
                     </div>
@@ -799,7 +807,7 @@
                     
                     <!-- Botão de download CV -->
                     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                        <a href="assets/docs/Currículo João Paulo Resende Costa.pdf" download="JoaoPaulo-Curriculo.pdf" 
+                        <a href="assets/docs/Curriculo_JoãoPauloResende.pdf" download="JoaoPaulo-Curriculo.pdf" 
                            class="btn-primary inline-flex items-center justify-center text-sm sm:text-base">
                             <i class="fas fa-download mr-2"></i> Download CV
                         </a>

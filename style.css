@@ -852,15 +852,44 @@ body {
 /* Animações personalizadas para a seção de formação */
 @keyframes float {
     0%, 100% {
-        transform: translateY(0px);
+        transform: translate3d(0, 0, 0);
     }
     50% {
-        transform: translateY(-20px);
+        transform: translate3d(0, -20px, 0);
     }
 }
 
 .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Lazy Loading Styles */
+.lazy-loading {
+    opacity: 0;
+    filter: blur(5px);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.lazy-loaded {
+    opacity: 1;
+    filter: blur(0);
+}
+
+.animate-in {
+    animation: slideInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
 }
 
 .animation-delay-1000 {
@@ -919,39 +948,44 @@ body {
     box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.5);
 }
 
-/* Efeitos hover para cards de formação */
+/* Efeitos hover para cards de formação - Otimizado */
 #formacao .group {
     will-change: transform;
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    backface-visibility: hidden;
 }
 
 #formacao .group:hover {
-    transform: scale(1.02) translateY(-5px);
+    transform: translate3d(0, -5px, 0) scale(1.02);
 }
 
-/* Animações de entrada escalonada */
+/* Animações de entrada escalonada - Otimizadas */
 #formacao [data-aos="fade-right"] {
     opacity: 0;
-    transform: translateX(-50px);
-    transition: all 0.4s ease-out;
+    transform: translate3d(-30px, 0, 0);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
 }
 
 #formacao [data-aos="fade-left"] {
     opacity: 0;
-    transform: translateX(50px);
-    transition: all 0.8s ease-out;
+    transform: translate3d(30px, 0, 0);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
 }
 
 #formacao [data-aos="fade-up"] {
     opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
+    transform: translate3d(0, 30px, 0);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
 }
 
 /* Quando os elementos entram na viewport */
 #formacao [data-aos].aos-animate {
     opacity: 1;
-    transform: translate(0);
+    transform: translate3d(0, 0, 0);
 }
 
 /* Responsividade para a seção de formação */
@@ -2370,27 +2404,29 @@ body {
         rgba(129, 140, 248, 0.15) 100%);
 }
 
-/* Animação de entrada das tags */
+/* Animação de entrada das tags - Otimizada */
 .tech-tag-modern {
-    animation: techTagFadeIn 0.6s ease-out forwards;
+    animation: techTagFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    will-change: opacity, transform;
+    backface-visibility: hidden;
 }
 
-.tech-tag-modern:nth-child(1) { animation-delay: 0.1s; }
-.tech-tag-modern:nth-child(2) { animation-delay: 0.2s; }
-.tech-tag-modern:nth-child(3) { animation-delay: 0.3s; }
-.tech-tag-modern:nth-child(4) { animation-delay: 0.4s; }
-.tech-tag-modern:nth-child(5) { animation-delay: 0.5s; }
-.tech-tag-modern:nth-child(6) { animation-delay: 0.6s; }
-.tech-tag-modern:nth-child(7) { animation-delay: 0.7s; }
+.tech-tag-modern:nth-child(1) { animation-delay: 0.05s; }
+.tech-tag-modern:nth-child(2) { animation-delay: 0.1s; }
+.tech-tag-modern:nth-child(3) { animation-delay: 0.15s; }
+.tech-tag-modern:nth-child(4) { animation-delay: 0.2s; }
+.tech-tag-modern:nth-child(5) { animation-delay: 0.25s; }
+.tech-tag-modern:nth-child(6) { animation-delay: 0.3s; }
+.tech-tag-modern:nth-child(7) { animation-delay: 0.35s; }
 
 @keyframes techTagFadeIn {
     0% {
         opacity: 0;
-        transform: translateY(10px) scale(0.9);
+        transform: translate3d(0, 10px, 0) scale(0.95);
     }
     100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translate3d(0, 0, 0) scale(1);
     }
 }
 

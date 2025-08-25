@@ -97,33 +97,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleMobile = document.getElementById('theme-toggle-mobile');
     
-    let isToggling = false; // Flag para prevenir cliques múltiplos
+    let lastToggleTime = 0; // Debounce simples
     
-    function toggleDarkMode() {
-        // Prevenir cliques múltiplos durante a transição
-        if (isToggling) return;
-        isToggling = true;
+    function toggleDarkMode(event) {
+        const now = Date.now();
+        // Debounce de 150ms para evitar cliques múltiplos
+        if (now - lastToggleTime < 150) return;
+        lastToggleTime = now;
         
-        // Usar requestAnimationFrame para melhor performance
-        requestAnimationFrame(() => {
-            const isDark = document.documentElement.classList.toggle('dark');
-            localStorage.setItem('darkMode', isDark);
-            
-            // Adicionar efeito de ripple no botão
-            const button = event.currentTarget;
-            if (button) {
-                button.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    button.style.transform = '';
-                }, 100);
-            }
-        });
+        // Aplicar mudança imediatamente
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('darkMode', isDark);
         
-        // Liberar o toggle mais rapidamente
-        setTimeout(() => {
-            isToggling = false;
-        }, 200);
-    }
+        // Efeito visual no botão (simples e rápido)
+         const button = event?.currentTarget;
+         if (button) {
+             button.style.transform = 'scale(0.95)';
+             
+             // Restaurar botão rapidamente
+             setTimeout(() => {
+                 button.style.transform = '';
+             }, 100);
+         }
+     }
     
     // Verificar preferência do usuário ao carregar a página
     if (localStorage.getItem('darkMode') === 'true' || 
@@ -161,10 +157,48 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ========== Botão Voltar ao Topo ==========
-    const backToTopButton = document.getElementById('backToTop');
+    // ========== Lazy Loading com Intersection Observer ==========
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    const lazyElements = document.querySelectorAll('[data-lazy]');
     
-    window.addEventListener('scroll', () => {
+    // Observer para imagens
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy-loading');
+                img.classList.add('lazy-loaded');
+                observer.unobserve(img);
+            }
+        });
+    }, {
+        rootMargin: '50px 0px',
+        threshold: 0.1
+    });
+    
+    // Observer para elementos gerais
+    const elementObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        rootMargin: '20px 0px',
+        threshold: 0.1
+    });
+    
+    // Aplicar observers
+    lazyImages.forEach(img => imageObserver.observe(img));
+    lazyElements.forEach(el => elementObserver.observe(el));
+
+    // ========== Botão Voltar ao Topo (Otimizado) ==========
+    const backToTopButton = document.getElementById('backToTop');
+    let ticking = false;
+    
+    function updateBackToTop() {
         if (backToTopButton) {
             if (window.pageYOffset > 300) {
                 backToTopButton.classList.remove('opacity-0', 'invisible');
@@ -174,7 +208,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 backToTopButton.classList.remove('opacity-100', 'visible');
             }
         }
-    });
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateBackToTop);
+            ticking = true;
+        }
+    }, { passive: true });
 
     if (backToTopButton) {
         backToTopButton.addEventListener('click', () => {

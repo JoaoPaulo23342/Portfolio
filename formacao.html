@@ -18,6 +18,88 @@
     <!-- CSS personalizado -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="formation.css">
+    
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(147, 51, 234, 0.8), 0 0 60px rgba(59, 130, 246, 0.6); }
+        }
+        
+        @keyframes slideInLeft {
+            0% { transform: translateX(-100px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            0% { transform: translateX(100px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes scaleIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        .animate-slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        .animate-slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        .animate-scale-in {
+            animation: scaleIn 0.6s ease-out;
+        }
+        
+        .menu-item {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .menu-item:hover::before {
+            left: 100%;
+        }
+        
+        .card-hover {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -27,7 +109,7 @@
     </button>
 
     <!-- Header/Navbar -->
-    <header class="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 ultra-smooth dark-mode-optimized">
+    <header class="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
@@ -63,7 +145,7 @@
                 <!-- Botões de ação -->
                 <div class="flex items-center space-x-4">
                     <!-- Dark Mode Toggle -->
-                    <button id="darkModeToggle" class="dark-mode-btn group relative p-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 ultra-smooth dark-mode-optimized transform hover:scale-105 active:scale-95 shadow-sm hover:shadow-md">
+                    <button id="darkModeToggle" class="dark-mode-btn group relative p-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-500 ease-in-out transform hover:scale-105 active:scale-95 shadow-sm hover:shadow-md">
                         <div class="relative w-5 h-5 overflow-hidden">
                             <i id="moon-icon" class="fas fa-moon absolute inset-0 transition-all duration-500 ease-in-out transform dark:rotate-180 dark:opacity-0 dark:scale-0"></i>
                             <i id="sun-icon" class="fas fa-sun absolute inset-0 transition-all duration-500 ease-in-out transform rotate-180 opacity-0 scale-0 dark:rotate-0 dark:opacity-100 dark:scale-100"></i>
@@ -171,144 +253,175 @@
         </section>
 
         <!-- Seção de Formação Acadêmica -->
-        <section class="py-20 bg-white dark:bg-gray-900">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+        <section class="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+            <!-- Elementos decorativos de fundo -->
+            <div class="absolute inset-0 opacity-30">
+                <div class="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full blur-xl animate-pulse"></div>
+                <div class="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full blur-xl animate-pulse" style="animation-delay: 1s;"></div>
+                <div class="absolute top-1/2 left-1/3 w-24 h-24 bg-gradient-to-br from-green-400 to-blue-500 rounded-full blur-xl animate-pulse" style="animation-delay: 2s;"></div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <div class="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full px-8 py-4 mb-8 shadow-lg">
+                        <i class="fas fa-graduation-cap text-2xl mr-3"></i>
+                        <span class="text-lg font-semibold">Jornada Educacional</span>
+                    </div>
+                    <h2 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-8">
                         Formação Acadêmica
                     </h2>
-                    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                        Minha trajetória educacional e os conhecimentos adquiridos ao longo dos anos.
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                        Uma trajetória de aprendizado contínuo, construindo as bases sólidas para uma carreira de sucesso em tecnologia.
                     </p>
                 </div>
 
                 <!-- Timeline de Formação -->
                 <div class="relative">
                     <!-- Linha da Timeline - Desktop -->
-                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary-500 to-blue-500 rounded-full"></div>
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-2 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full shadow-lg"></div>
 
                     <!-- Ensino Superior -->
-                    <div class="relative flex flex-col md:flex-row md:items-center mb-12 md:mb-16" data-aos="fade-right">
+                    <div class="relative flex flex-col md:flex-row md:items-center mb-16 md:mb-20" data-aos="fade-right" data-aos-duration="800">
                         <!-- Mobile Layout -->
                         <div class="md:hidden flex items-start relative">
-                            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 w-full">
-                                <div class="flex items-center mb-4">
-                                    <div class="bg-primary-100 dark:bg-primary-900 p-3 rounded-full mr-4">
-                                        <i class="fas fa-university text-primary-600 dark:text-primary-400 text-xl"></i>
+                            <div class="bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-700 p-8 rounded-3xl shadow-2xl border border-blue-200 dark:border-blue-800 hover:shadow-3xl hover:scale-105 transition-all duration-500 w-full relative overflow-hidden">
+                                <!-- Elemento decorativo -->
+                                <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full blur-xl opacity-20"></div>
+                                
+                                <div class="flex items-center mb-6 relative z-10">
+                                    <div class="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-2xl mr-4 shadow-lg">
+                                        <i class="fas fa-university text-white text-2xl"></i>
                                     </div>
-                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Ensino Superior</h3>
+                                    <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Ensino Superior</h3>
                                 </div>
-                                <h4 class="text-lg font-semibold text-primary-600 dark:text-primary-400 mb-2">
+                                <h4 class="text-xl font-bold text-gray-800 dark:text-white mb-3">
                                     Análise e Desenvolvimento de Sistemas
                                 </h4>
-                                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                <p class="text-gray-600 dark:text-gray-300 mb-6 font-medium">
                                     UniCEUB Centro Universitário de Brasília - Brasília/DF
                                 </p>
-                                <div class="flex items-center text-sm text-gray-500 dark:text-gray-500 mb-4">
-                                    <i class="fas fa-calendar-alt mr-2"></i>
-                                    <span>2023 - 2025</span>
+                                <div class="flex items-center text-gray-500 dark:text-gray-400 mb-6">
+                                    <div class="bg-gradient-to-r from-blue-500 to-purple-500 p-2 rounded-lg mr-3">
+                                        <i class="fas fa-calendar-alt text-white text-sm"></i>
+                                    </div>
+                                    <span class="font-semibold">2023 - 2025</span>
                                 </div>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Programação</span>
-                                    <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">Banco de Dados</span>
-                                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">Engenharia de Software</span>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300">Programação</span>
+                                    <span class="px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300">Banco de Dados</span>
+                                    <span class="px-4 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300">Engenharia de Software</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Desktop Layout -->
                         <div class="hidden md:flex md:items-center w-full">
-                            <div class="w-1/2 pr-8 text-right">
-                                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
-                                    <div class="flex items-center justify-end mb-4">
-                                        <div class="bg-primary-100 dark:bg-primary-900 p-3 rounded-full mr-4">
-                                            <i class="fas fa-university text-primary-600 dark:text-primary-400 text-2xl"></i>
+                            <div class="w-1/2 pr-12 text-right">
+                                <div class="bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-700 p-10 rounded-3xl shadow-2xl border border-blue-200 dark:border-blue-800 hover:shadow-3xl hover:scale-105 transition-all duration-500 relative overflow-hidden">
+                                    <!-- Elemento decorativo -->
+                                    <div class="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full blur-xl opacity-20"></div>
+                                    
+                                    <div class="flex items-center justify-end mb-6 relative z-10">
+                                        <h3 class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mr-4">Ensino Superior</h3>
+                                        <div class="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-2xl shadow-lg">
+                                            <i class="fas fa-university text-white text-3xl"></i>
                                         </div>
-                                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Ensino Superior</h3>
                                     </div>
-                                    <h4 class="text-xl font-semibold text-primary-600 dark:text-primary-400 mb-2">
+                                    <h4 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">
                                         Análise e Desenvolvimento de Sistemas
                                     </h4>
-                                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                    <p class="text-gray-600 dark:text-gray-300 mb-6 text-lg font-medium">
                                         UniCEUB Centro Universitário de Brasília - Brasília/DF
                                     </p>
-                                    <div class="flex items-center justify-end text-sm text-gray-500 dark:text-gray-500 mb-4">
-                                        <i class="fas fa-calendar-alt mr-2"></i>
-                                        <span>2023 - 2025</span>
+                                    <div class="flex items-center justify-end text-gray-500 dark:text-gray-400 mb-6">
+                                        <span class="font-semibold text-lg mr-3">2023 - 2025</span>
+                                        <div class="bg-gradient-to-r from-blue-500 to-purple-500 p-3 rounded-lg">
+                                            <i class="fas fa-calendar-alt text-white"></i>
+                                        </div>
                                     </div>
-                                    <div class="flex flex-wrap gap-2 justify-end">
-                                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Programação</span>
-                                        <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">Banco de Dados</span>
-                                        <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">Engenharia de Software</span>
+                                    <div class="flex flex-wrap gap-3 justify-end">
+                                        <span class="px-5 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">Programação</span>
+                                        <span class="px-5 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">Banco de Dados</span>
+                                        <span class="px-5 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">Engenharia de Software</span>
                                     </div>
                                 </div>
                             </div>
                             
                             <!-- Ponto da Timeline Desktop -->
-                            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-primary-600 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full border-4 border-white dark:border-gray-900 shadow-2xl z-10 animate-pulse"></div>
                             
-                            <div class="w-1/2 pl-8"></div>
+                            <div class="w-1/2 pl-12"></div>
                         </div>
                     </div>
 
                     <!-- Ensino Médio -->
-                    <div class="relative flex flex-col md:flex-row md:items-center mb-12 md:mb-16" data-aos="fade-left">
+                    <div class="relative flex flex-col md:flex-row md:items-center mb-16 md:mb-20" data-aos="fade-left" data-aos-duration="800">
                         <!-- Mobile Layout -->
                         <div class="md:hidden flex items-start relative">
-                            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 w-full">
-                                <div class="flex items-center mb-4">
-                                    <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
-                                        <i class="fas fa-school text-blue-600 dark:text-blue-400 text-xl"></i>
+                            <div class="bg-gradient-to-br from-white to-pink-50 dark:from-gray-800 dark:to-gray-700 p-8 rounded-3xl shadow-2xl border border-pink-200 dark:border-pink-800 hover:shadow-3xl hover:scale-105 transition-all duration-500 w-full relative overflow-hidden">
+                                <!-- Elemento decorativo -->
+                                <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-pink-400 to-orange-500 rounded-full blur-xl opacity-20"></div>
+                                
+                                <div class="flex items-center mb-6 relative z-10">
+                                    <div class="bg-gradient-to-br from-pink-500 to-orange-600 p-4 rounded-2xl mr-4 shadow-lg">
+                                        <i class="fas fa-school text-white text-2xl"></i>
                                     </div>
-                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Ensino Médio</h3>
+                                    <h3 class="text-2xl font-bold bg-gradient-to-r from-pink-600 to-orange-600 bg-clip-text text-transparent">Ensino Médio</h3>
                                 </div>
-                                <h4 class="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">
+                                <h4 class="text-xl font-bold text-gray-800 dark:text-white mb-3">
                                     Ensino Médio Completo
                                 </h4>
-                                <p class="text-gray-600 dark:text-gray-400 mb-4">
-                                    Colégio Estadual de Educação do Campo Joaquim Cavalcante Lima - Mato Seco - GO
+                                <p class="text-gray-600 dark:text-gray-300 mb-6 font-medium">
+                                    Colégio Estadual de Educação do Campo Joaquim Cavalcante Lima - Brasília/DF
                                 </p>
-                                <div class="flex items-center text-sm text-gray-500 dark:text-gray-500 mb-4">
-                                    <i class="fas fa-calendar-alt mr-2"></i>
-                                    <span>2020 - 2022</span>
+                                <div class="flex items-center text-gray-500 dark:text-gray-400 mb-6">
+                                    <div class="bg-gradient-to-r from-pink-500 to-orange-500 p-2 rounded-lg mr-3">
+                                        <i class="fas fa-calendar-alt text-white text-sm"></i>
+                                    </div>
+                                    <span class="font-semibold">2020 - 2022</span>
                                 </div>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full text-sm">Matemática</span>
-                                    <span class="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full text-sm">Física</span>
-                                    <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-full text-sm">Lógica</span>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-4 py-2 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300">Matemática</span>
+                                    <span class="px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300">Física</span>
+                                    <span class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300">Lógica</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Desktop Layout -->
                         <div class="hidden md:flex md:items-center w-full">
-                            <div class="w-1/2 pr-8"></div>
+                            <div class="w-1/2 pr-12"></div>
                             
                             <!-- Ponto da Timeline Desktop -->
-                            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-600 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-br from-pink-500 to-orange-600 rounded-full border-4 border-white dark:border-gray-900 shadow-2xl z-10 animate-pulse"></div>
                             
-                            <div class="w-1/2 pl-8">
-                                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
-                                    <div class="flex items-center mb-4">
-                                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
-                                            <i class="fas fa-school text-blue-600 dark:text-blue-400 text-2xl"></i>
+                            <div class="w-1/2 pl-12">
+                                <div class="bg-gradient-to-br from-white to-pink-50 dark:from-gray-800 dark:to-gray-700 p-10 rounded-3xl shadow-2xl border border-pink-200 dark:border-pink-800 hover:shadow-3xl hover:scale-105 transition-all duration-500 relative overflow-hidden">
+                                    <!-- Elemento decorativo -->
+                                    <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-pink-400 to-orange-500 rounded-full blur-xl opacity-20"></div>
+                                    
+                                    <div class="flex items-center mb-6 relative z-10">
+                                        <div class="bg-gradient-to-br from-pink-500 to-orange-600 p-4 rounded-2xl mr-4 shadow-lg">
+                                            <i class="fas fa-school text-white text-3xl"></i>
                                         </div>
-                                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Ensino Médio</h3>
+                                        <h3 class="text-3xl font-bold bg-gradient-to-r from-pink-600 to-orange-600 bg-clip-text text-transparent">Ensino Médio</h3>
                                     </div>
-                                    <h4 class="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-2">
+                                    <h4 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">
                                         Ensino Médio Completo
                                     </h4>
-                                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                    <p class="text-gray-600 dark:text-gray-300 mb-6 text-lg font-medium">
                                         Colégio Estadual de Educação do Campo Joaquim Cavalcante Lima - Brasília/DF
                                     </p>
-                                    <div class="flex items-center text-sm text-gray-500 dark:text-gray-500 mb-4">
-                                        <i class="fas fa-calendar-alt mr-2"></i>
-                                        <span>2020 - 2022</span>
+                                    <div class="flex items-center text-gray-500 dark:text-gray-400 mb-6">
+                                        <div class="bg-gradient-to-r from-pink-500 to-orange-500 p-3 rounded-lg mr-3">
+                                            <i class="fas fa-calendar-alt text-white"></i>
+                                        </div>
+                                        <span class="font-semibold text-lg">2020 - 2022</span>
                                     </div>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full text-sm">Matemática</span>
-                                        <span class="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full text-sm">Física</span>
-                                        <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-full text-sm">Lógica</span>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="px-5 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">Matemática</span>
+                                        <span class="px-5 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">Física</span>
+                                        <span class="px-5 py-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">Lógica</span>
                                     </div>
                                 </div>
                             </div>
@@ -318,261 +431,7 @@
             </div>
         </section>
 
-        <!-- Seção de Certificações -->
-        <section class="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
-            <!-- Elementos decorativos de fundo -->
-            <div class="absolute inset-0 opacity-30">
-                <div class="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-                <div class="absolute top-40 right-10 w-72 h-72 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 2s;"></div>
-                <div class="absolute bottom-20 left-1/2 w-72 h-72 bg-gradient-to-r from-yellow-400 to-red-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 4s;"></div>
-            </div>
 
-            <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl mb-6">
-                        <i class="fas fa-certificate text-white text-2xl"></i>
-                    </div>
-                    <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-6">
-                        Certificações & Cursos
-                    </h2>
-                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                        Certificações e cursos especializados que complementam minha formação acadêmica e mantêm minhas habilidades sempre atualizadas.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 auto-rows-fr">
-                    <!-- Certificação JavaScript -->
-                    <div class="group relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20 dark:border-gray-700/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                        <!-- Gradiente de fundo no hover -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        
-                        <div class="relative z-10 text-center">
-                            <!-- Ícone centralizado -->
-                            <div class="flex justify-center mb-6">
-                                <div class="relative">
-                                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-js-square text-white text-3xl"></i>
-                                    </div>
-                                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-check text-white text-sm"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Título e instituição centralizados -->
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors duration-300 mb-2">JavaScript Moderno</h3>
-                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 flex items-center justify-center mb-4">
-                                <i class="fas fa-graduation-cap mr-2"></i>
-                                Udemy
-                            </p>
-
-                            <!-- Descrição centralizada -->
-                            <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                                Curso completo de JavaScript ES6+, incluindo conceitos avançados e práticas modernas de desenvolvimento.
-                            </p>
-
-                            <!-- Tags de habilidades centralizadas -->
-                            <div class="flex flex-wrap justify-center gap-2">
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/50 dark:to-orange-900/50 text-yellow-800 dark:text-yellow-200 rounded-full text-sm font-medium border border-yellow-200 dark:border-yellow-700">ES6+</span>
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700">Async/Await</span>
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/50 dark:to-emerald-900/50 text-green-800 dark:text-green-200 rounded-full text-sm font-medium border border-green-200 dark:border-green-700">DOM</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Certificação React -->
-                    <div class="group relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20 dark:border-gray-700/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        
-                        <div class="relative z-10 text-center">
-                            <!-- Ícone centralizado -->
-                            <div class="flex justify-center mb-6">
-                                <div class="relative">
-                                    <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-react text-white text-3xl"></i>
-                                    </div>
-                                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-check text-white text-sm"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Título e instituição centralizados -->
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 mb-2">React.js</h3>
-                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 flex items-center justify-center mb-4">
-                                <i class="fas fa-graduation-cap mr-2"></i>
-                                Alura
-                            </p>
-
-                            <!-- Descrição centralizada -->
-                            <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                                Desenvolvimento de aplicações web modernas com React, Hooks e Context API para interfaces dinâmicas.
-                            </p>
-
-                            <!-- Tags de habilidades centralizadas -->
-                            <div class="flex flex-wrap justify-center gap-2">
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700">Hooks</span>
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/50 dark:to-pink-900/50 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium border border-purple-200 dark:border-purple-700">Context API</span>
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/50 dark:to-emerald-900/50 text-green-800 dark:text-green-200 rounded-full text-sm font-medium border border-green-200 dark:border-green-700">Redux</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Certificação Node.js -->
-                    <div class="group relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20 dark:border-gray-700/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                        <div class="absolute inset-0 bg-gradient-to-br from-green-400/10 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        
-                        <div class="relative z-10 text-center">
-                            <!-- Ícone centralizado -->
-                            <div class="flex justify-center mb-6">
-                                <div class="relative">
-                                    <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-node-js text-white text-3xl"></i>
-                                    </div>
-                                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-check text-white text-sm"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Título e instituição centralizados -->
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300 mb-2">Node.js & Express</h3>
-                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 flex items-center justify-center mb-4">
-                                <i class="fas fa-graduation-cap mr-2"></i>
-                                Alura
-                            </p>
-
-                            <!-- Descrição centralizada -->
-                            <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                                Desenvolvimento de APIs RESTful e aplicações backend robustas com Node.js e Express.
-                            </p>
-
-                            <!-- Tags de habilidades centralizadas -->
-                            <div class="flex flex-wrap justify-center gap-2">
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/50 dark:to-emerald-900/50 text-green-800 dark:text-green-200 rounded-full text-sm font-medium border border-green-200 dark:border-green-700">Express</span>
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700">REST API</span>
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/50 dark:to-orange-900/50 text-yellow-800 dark:text-yellow-200 rounded-full text-sm font-medium border border-yellow-200 dark:border-yellow-700">JWT</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Certificação Banco de Dados -->
-                    <div class="group relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20 dark:border-gray-700/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden" data-aos="fade-up" data-aos-delay="400">
-                        <div class="absolute inset-0 bg-gradient-to-br from-orange-400/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        
-                        <div class="relative z-10 text-center">
-                            <!-- Ícone centralizado -->
-                            <div class="flex justify-center mb-6">
-                                <div class="relative">
-                                    <div class="w-20 h-20 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                        <i class="fas fa-database text-white text-3xl"></i>
-                                    </div>
-                                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-check text-white text-sm"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Título e instituição centralizados -->
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors duration-300 mb-2">Banco de Dados</h3>
-                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 flex items-center justify-center mb-4">
-                                <i class="fas fa-graduation-cap mr-2"></i>
-                                Udemy
-                            </p>
-
-                            <!-- Descrição centralizada -->
-                            <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                                Modelagem e administração de bancos de dados relacionais e não-relacionais para aplicações modernas.
-                            </p>
-
-                            <!-- Tags de habilidades centralizadas -->
-                            <div class="flex flex-wrap justify-center gap-2">
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700">MySQL</span>
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/50 dark:to-emerald-900/50 text-green-800 dark:text-green-200 rounded-full text-sm font-medium border border-green-200 dark:border-green-700">MongoDB</span>
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/50 dark:to-pink-900/50 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium border border-purple-200 dark:border-purple-700">PostgreSQL</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Certificação Full Stack -->
-                    <div class="group relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20 dark:border-gray-700/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden" data-aos="fade-up" data-aos-delay="500">
-                        <div class="absolute inset-0 bg-gradient-to-br from-purple-400/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        
-                        <div class="relative z-10 text-center">
-                            <!-- Ícone centralizado -->
-                            <div class="flex justify-center mb-6">
-                                <div class="relative">
-                                    <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                        <i class="fas fa-code text-white text-3xl"></i>
-                                    </div>
-                                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-check text-white text-sm"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Título e instituição centralizados -->
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300 mb-2">Desenvolvedor Full Stack Jr.</h3>
-                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 flex items-center justify-center mb-4">
-                                <i class="fas fa-graduation-cap mr-2"></i>
-                                +prati
-                            </p>
-
-                            <!-- Descrição centralizada -->
-                            <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                                Curso completo de desenvolvimento full stack abordando tanto frontend quanto backend, incluindo AWS e Cloud Computing.
-                            </p>
-
-                            <!-- Tags de habilidades centralizadas -->
-                            <div class="flex flex-wrap justify-center gap-2">
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700">Frontend</span>
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/50 dark:to-emerald-900/50 text-green-800 dark:text-green-200 rounded-full text-sm font-medium border border-green-200 dark:border-green-700">Backend</span>
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-900/50 dark:to-red-900/50 text-orange-800 dark:text-orange-200 rounded-full text-sm font-medium border border-orange-200 dark:border-orange-700">AWS</span>
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/50 dark:to-pink-900/50 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium border border-purple-200 dark:border-purple-700">Cloud</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Certificação Git -->
-                    <div class="group relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/20 dark:border-gray-700/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden" data-aos="fade-up" data-aos-delay="600">
-                        <div class="absolute inset-0 bg-gradient-to-br from-red-400/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        
-                        <div class="relative z-10 text-center">
-                            <!-- Ícone centralizado -->
-                            <div class="flex justify-center mb-6">
-                                <div class="relative">
-                                    <div class="w-20 h-20 bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-git-alt text-white text-3xl"></i>
-                                    </div>
-                                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-check text-white text-sm"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Título e instituição centralizados -->
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300 mb-2">Git & GitHub</h3>
-                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 flex items-center justify-center mb-4">
-                                <i class="fas fa-graduation-cap mr-2"></i>
-                                PUCRS
-                            </p>
-
-                            <!-- Descrição centralizada -->
-                            <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                                Controle de versão e colaboração em projetos usando Git e GitHub para desenvolvimento em equipe.
-                            </p>
-
-                            <!-- Tags de habilidades centralizadas -->
-                            <div class="flex flex-wrap justify-center gap-2">
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-red-100 to-pink-100 dark:from-red-900/50 dark:to-pink-900/50 text-red-800 dark:text-red-200 rounded-full text-sm font-medium border border-red-200 dark:border-red-700">Git</span>
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-gray-100 to-slate-100 dark:from-gray-700/50 dark:to-slate-700/50 text-gray-800 dark:text-gray-200 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-600">GitHub</span>
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700">GitFlow</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Seção de Habilidades -->
         <section class="py-20 bg-white dark:bg-gray-900">
